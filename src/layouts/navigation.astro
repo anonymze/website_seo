@@ -3,116 +3,240 @@ import MobileMenuToggle from "@/components/mobile-menu-toggle.tsx";
 import LogoImg from "@/assets/images/logo.png";
 import { Image } from "astro:assets";
 import { businessInfo } from "@/utils/helper";
-import { Calendar1Icon } from "lucide-react";
+import { Calendar1Icon, PaperclipIcon } from "lucide-react";
 
-// SEO-optimized navigation items with descriptive titles
+const currentPath = Astro.url.pathname;
+
+// SEO-optimized navigation items with enhanced metadata
 const navItems = [
     {
         href: "/",
         label: "Accueil",
-        title: "Accueil - Charlotte Drouilly Kinésiologue en Suisse",
-        description: "Page d'accueil du cabinet de kinésiologie de Charlotte Drouilly en Suisse"
+        title: "Développeur Web Freelance Expert | Yann Metier - Créateur de Sites Modernes",
+        description: "Page d'accueil - Développeur web freelance spécialisé en React, Next.js et solutions digitales sur-mesure. Création de sites web professionnels et optimisés SEO.",
+        keywords: "développeur web freelance, création site internet, React Next.js développeur"
     },
     {
-        href: "/a-propos",
-        label: "À propos",
-        title: "À propos de Charlotte Drouilly - Parcours et formation en kinésiologie",
-        description: "Découvrez le parcours, la formation et l'approche thérapeutique de Charlotte Drouilly, kinésiologue expérimentée"
+        href: "/services",
+        label: "Services",
+        title: "Services Développement Web | Création Sites Internet & Applications",
+        description: "Découvrez mes services de développement web : création de sites vitrine, e-commerce, applications web sur-mesure, optimisation SEO et maintenance.",
+        keywords: "services développement web, création site vitrine, application web sur-mesure"
     },
     {
-        href: "/tarifs",
-        label: "Tarifs",
-        title: "Tarifs des séances de kinésiologie et massage thérapeutique",
-        description: "Consultez les tarifs des séances de kinésiologie intuitive, massage sacré et accompagnement holistique"
+        href: "/portfolio",
+        label: "Portfolio",
+        title: "Portfolio Projets Web | Exemples Sites Internet & Applications Créés",
+        description: "Consultez mes réalisations en développement web : sites vitrine, boutiques e-commerce, applications métier et projets digitaux réussis.",
+        keywords: "portfolio développeur web, projets sites internet, réalisations applications"
     },
     {
         href: "/contact",
         label: "Contact",
-        title: "Contact et prise de rendez-vous - Charlotte Drouilly Kinésiologue",
-        description: "Contactez Charlotte Drouilly pour prendre rendez-vous ou obtenir des informations sur les séances de kinésiologie"
+        title: "Contact Développeur Web Freelance | Devis Gratuit & Prise de Rendez-vous",
+        description: "Contactez Yann Metier, développeur web freelance, pour discuter de votre projet digital. Devis gratuit, conseil personnalisé et accompagnement sur-mesure.",
+        keywords: "contact développeur web, devis gratuit site internet, développeur freelance"
     },
 ];
+
+const currentNavItem = navItems.find(item => item.href === currentPath) || navItems[0];
+
+// JSON-LD structured data for organization and website
+const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Yann Metier - Développeur Web Freelance",
+    "description": "Développeur web freelance expert en React, Next.js et Expo. Création de sites internet professionnels, applications web sur-mesure et solutions digitales optimisées.",
+    "url": "https://ano-dev.pro",
+    "logo": "https://ano-dev.pro/assets/logo.png",
+    "image": "https://ano-dev.pro/assets/yann-metier-developer.jpg",
+    "telephone": "+33-6-XX-XX-XX-XX",
+    "email": "contact@ano-dev.pro",
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "FR",
+        "addressRegion": "France"
+    },
+    "founder": {
+        "@type": "Person",
+        "name": "Yann Metier",
+        "jobTitle": "Développeur Web Freelance",
+        "description": "Développeur web freelance spécialisé en JavaScript, React, Next.js et Expo. Expert en création de sites internet modernes et applications web performantes.",
+        "sameAs": [
+            "https://linkedin.com/in/yann-metier",
+            "https://github.com/yann-metier"
+        ]
+    },
+    "serviceType": "Développement Web",
+    "areaServed": {
+        "@type": "Country",
+        "name": "France"
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services de Développement Web",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Création de Sites Internet",
+                    "description": "Développement de sites web modernes, responsives et optimisés SEO"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Applications Web Sur-Mesure",
+                    "description": "Développement d'applications web métier personnalisées"
+                }
+            }
+        ]
+    }
+};
+
+const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Yann Metier - Développeur Web Freelance",
+    "url": "https://ano-dev.pro",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ano-dev.pro/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Ano Dev",
+        "logo": "https://ano-dev.pro/assets/logo.png"
+    }
+};
+
 ---
 
-<header role="banner">
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
+
+<!-- Skip navigation for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[9999] bg-primary text-primary-foreground px-4 py-2 rounded-md">
+    Aller au contenu principal
+</a>
+
+<header role="banner" itemscope itemtype="https://schema.org/Organization">
+    <!-- SEO Meta Enhancement -->
+    <meta name="description" content={currentNavItem.description} />
+    <meta name="keywords" content={currentNavItem.keywords} />
+    <link rel="canonical" href={`https://ano-dev.pro${currentPath === '/' ? '' : currentPath}`} />
+
     <nav
         class="bg-card/70 backdrop-blur-lg border-b border-border/20 sticky top-0 z-50"
         role="navigation"
-        aria-label="Navigation principale"
+        aria-label="Navigation principale du site"
+        itemscope
+        itemtype="https://schema.org/SiteNavigationElement"
     >
         <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
             <div class="flex justify-between items-center h-20">
 
-                <!-- Logo et nom du praticien -->
-                <div class="flex items-center">
+                <!-- Logo et informations business -->
+                <div class="flex items-center" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
                     <a
                         href="/"
                         class="flex items-center space-x-3"
-                        title={`${businessInfo.name} - ${businessInfo.profession} à ${businessInfo.location}`}
-                        aria-label={`Retour à l'accueil du site de ${businessInfo.name}, ${businessInfo.profession} à ${businessInfo.location}`}
+                        title="Yann Metier - Développeur Web Freelance Expert React Next.js | Retour à l'accueil"
+                        aria-label="Yann Metier, développeur web freelance spécialisé React et Next.js - Retour à la page d'accueil"
+                        itemprop="url"
                     >
                         <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary organic-shape flex items-center justify-center shadow-lg">
                             <Image
                                 src={LogoImg}
-                                width={20}
-                                height={20}
-                                alt={`Logo de ${businessInfo.name}`}
+                                width={32}
+                                height={32}
+                                alt="Logo Yann Metier Développeur Web - Symbole professionnel représentant l'expertise en développement"
                                 loading="eager"
+                                itemprop="logo"
                             />
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-sans font-bold text-xl text-foreground tracking-wide">
-                                Charlotte
+                            <span class="font-sans font-bold text-xl text-foreground tracking-wide" itemprop="name">
+                                Yann Metier
                             </span>
-                            <span class="text-xs text-muted-foreground font-medium">
-                                Kinésiologue
+                            <span class="text-xs text-muted-foreground font-medium" itemprop="description">
+                                Développeur web freelance
                             </span>
                         </div>
                     </a>
                 </div>
 
                 <!-- Navigation principale desktop -->
-                <nav class="hidden md:flex items-center" role="navigation" aria-label="Menu principal">
-                    <ul class="flex items-center space-x-8 list-none m-0 p-0">
-                        {navItems.map((item) => (
-                            <li>
-                                <a
-                                    href={item.href}
-                                    title={item.title}
-                                    class="text-foreground/80 hover:text-primary transition-all duration-300 font-medium text-base py-2 px-1 font-sans relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-sm"
-                                    aria-describedby={`desc-${item.href.slice(1) || 'home'}`}
-                                >
-                                    {item.label}
-                                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full" aria-hidden="true"></span>
-                                </a>
-                                <!-- Descriptions cachées pour l'accessibilité -->
-                                <span
-                                    id={`desc-${item.href.slice(1) || 'home'}`}
-                                    class="sr-only"
-                                >
-                                    {item.description}
-                                </span>
-                            </li>
-                        ))}
+                <nav class="hidden md:flex items-center" role="navigation" aria-label="Menu de navigation principal">
+                    <ul class="flex items-center space-x-8 list-none m-0 p-0" role="menubar">
+                        {navItems.map((item, index) => {
+                            const isActive = currentPath === item.href;
+                            const itemId = `nav-${item.href.slice(1) || 'home'}`;
 
-                        <!-- Bouton de réservation -->
-                        <li>
+                            return (
+                                <li role="none">
+                                    <a
+                                        id={itemId}
+                                        href={item.href}
+                                        title={item.title}
+                                        role="menuitem"
+                                        tabindex={index === 0 ? "0" : "-1"}
+                                        class={`text-foreground/80 hover:text-primary transition-all duration-300 font-medium text-base py-2 px-1 font-sans relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
+                                        aria-describedby={`desc-${item.href.slice(1) || 'home'}`}
+                                        aria-current={isActive ? 'page' : undefined}
+                                        itemprop="url"
+                                    >
+                                        <span itemprop="name">{item.label}</span>
+                                        <span class={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 rounded-full ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} aria-hidden="true"></span>
+                                    </a>
+                                    <!-- Descriptions cachées pour l'accessibilité -->
+                                    <span
+                                        id={`desc-${item.href.slice(1) || 'home'}`}
+                                        class="sr-only"
+                                        role="tooltip"
+                                    >
+                                        {item.description}
+                                    </span>
+                                </li>
+                            )
+                        })}
+
+                        <!-- Call-to-Action principal -->
+                        <li role="none">
                             <a
-                                href="/reservation"
-                                class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 font-sans hover:scale-102 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                                title="Prendre rendez-vous en ligne avec Charlotte Drouilly pour une séance de kinésiologie"
-                                aria-label="Réserver une consultation en kinésiologie avec Charlotte Drouilly"
+                                href="/contact"
+                                role="menuitem"
+                                class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-200 font-sans hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                                title="Obtenir un devis gratuit pour votre projet web - Développeur freelance React Next.js"
+                                aria-label="Demander un devis personnalisé gratuit pour votre projet de développement web"
+                                itemprop="potentialAction"
+                                itemscope
+                                itemtype="https://schema.org/ContactAction"
                             >
-                                <Calendar1Icon width={20} height={20} className="mr-2" />
-                                Réserver
+                                <svg width="20" height="20" class="mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                                </svg>
+                                <span itemprop="name">Obtenir un devis</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
 
-                <!-- Menu mobile -->
-                <div class="md:hidden relative">
-                    <MobileMenuToggle client:visible navItems={navItems.map(item => ({ href: item.href, label: item.label }))} />
+                <!-- Menu mobile avec amélioration SEO -->
+                <div class="md:hidden relative" role="navigation" aria-label="Menu de navigation mobile">
+                    <MobileMenuToggle
+                        client:visible
+                        navItems={navItems.map(item => ({
+                            href: item.href,
+                            label: item.label,
+                            title: item.title,
+                            description: item.description
+                        }))}
+                    />
                 </div>
             </div>
         </div>
