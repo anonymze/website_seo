@@ -1,0 +1,197 @@
+---
+import { Phone, Mail, MapPin, Leaf } from "lucide-react";
+
+// Business information with structured data
+const businessInfo = {
+    name: "Charlotte Drouilly",
+    profession: "Kinésiologue",
+    phone: "+41 22 123 45 67",
+    email: "charlotte.drouilly@kinesio.ch",
+    address: {
+        street: "15 Rue du Rhône",
+        city: "Genève",
+        postalCode: "1204",
+        country: "Suisse",
+    },
+    description:
+        "Guide kinésiologue, je vous accompagne dans votre voyage vers l'harmonie intérieure à travers des approches sacrées et personnalisées, dans un esprit de pure bienveillance.",
+};
+
+const navItems = [
+    { href: "/", label: "Accueil", title: "Retour à la page d'accueil" },
+    {
+        href: "/a-propos",
+        label: "À propos",
+        title: "En savoir plus sur Charlotte Drouilly",
+    },
+    {
+        href: "/tarifs",
+        label: "Tarifs",
+        title: "Consulter les tarifs des séances",
+    },
+    {
+        href: "/contact",
+        label: "Contact",
+        title: "Prendre contact avec Charlotte",
+    },
+    {
+        href: "/reservation",
+        label: "Rendez-vous",
+        title: "Prendre rendez-vous en ligne pour une consultation en kinésiologie",
+    },
+];
+---
+
+<footer
+    class="bg-gradient-to-b from-card/50 to-card/70 border-t border-border/20 backdrop-blur-lg"
+    role="contentinfo"
+>
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-12 pb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+            <!-- Contact Information Section -->
+            <section class="space-y-10" aria-labelledby="contact-heading">
+                <h3
+                    id="contact-heading"
+                    class="font-sans font-bold text-2xl text-foreground mb-10"
+                >
+                    Contact
+                </h3>
+                <address class="not-italic space-y-8">
+                    <div
+                        class="flex items-center space-x-6 text-muted-foreground text-lg font-sans"
+                    >
+                        <div
+                            class="w-14 h-14 flex items-center justify-center bg-secondary organic-shape"
+                            aria-hidden="true"
+                        >
+                            <Phone className="w-6 h-6 text-white" />
+                        </div>
+                        <a
+                            href={`tel:${businessInfo.phone}`}
+                            class="hover:text-primary transition-colors duration-300"
+                            aria-label={`Appeler ${businessInfo.name} au ${businessInfo.phone}`}
+                            itemprop="telephone"
+                        >
+                            {businessInfo.phone}
+                        </a>
+                    </div>
+
+                    <div
+                        class="flex items-center space-x-6 text-muted-foreground text-lg font-sans"
+                    >
+                        <div
+                            class="w-14 h-14 flex items-center justify-center bg-secondary organic-shape"
+                            aria-hidden="true"
+                        >
+                            <Mail className="w-6 h-6 text-white" />
+                        </div>
+                        <a
+                            href={`mailto:${businessInfo.email}`}
+                            class="hover:text-primary transition-colors duration-300"
+                            aria-label={`Envoyer un email à ${businessInfo.name}`}
+                            itemprop="email"
+                        >
+                            {businessInfo.email}
+                        </a>
+                    </div>
+
+                    <div
+                        class="flex items-center space-x-6 text-muted-foreground text-lg font-sans"
+                    >
+                        <div
+                            class="w-14 h-14 flex items-center justify-center bg-secondary organic-shape"
+                            aria-hidden="true"
+                        >
+                            <MapPin className="w-6 h-6 text-white" />
+                        </div>
+                        <span
+                            itemprop="address"
+                            itemscope
+                            itemtype="https://schema.org/PostalAddress"
+                        >
+                            <span itemprop="streetAddress"
+                                >{businessInfo.address.street}</span
+                            >,
+                            <span itemprop="postalCode"
+                                >{businessInfo.address.postalCode}</span
+                            >
+                            <span itemprop="addressLocality"
+                                >{businessInfo.address.city}</span
+                            >,
+                            <span itemprop="addressCountry"
+                                >{businessInfo.address.country}</span
+                            >
+                        </span>
+                    </div>
+                </address>
+            </section>
+
+            <!-- Site Navigation Section -->
+            <nav class="space-y-10" aria-labelledby="footer-nav-heading">
+                <h3
+                    id="footer-nav-heading"
+                    class="font-sans font-bold text-2xl text-foreground mb-10"
+                >
+                    Navigation
+                </h3>
+                <ul class="space-y-6" role="list">
+                    {
+                        navItems.map((item) => (
+                            <li>
+                                <a
+                                    href={item.href}
+                                    title={item.title}
+                                    class="block text-muted-foreground hover:text-primary transition-all duration-300 text-lg hover:translate-x-3 py-0.5 font-sans focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+
+            <!-- About Section -->
+            <section
+                class="space-y-10"
+                aria-labelledby="about-heading"
+                itemscope
+                itemtype="https://schema.org/Person"
+            >
+                <h3
+                    id="about-heading"
+                    class="font-sans font-bold text-2xl text-foreground mb-10"
+                    itemprop="name"
+                >
+                    {businessInfo.name}
+                </h3>
+                <p
+                    class="text-muted-foreground text-lg leading-relaxed mb-10 font-sans"
+                    itemprop="description"
+                >
+                    {businessInfo.description}
+                </p>
+            </section>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-border/20 mt-10 pt-8 text-center">
+            <p class="text-muted-foreground text-lg font-sans">
+                © <time datetime="2025">2025</time>
+                <span itemprop="name">{businessInfo.name}</span> -
+                <span itemprop="jobTitle">{businessInfo.profession}</span>. Tous
+                droits réservés.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const year = document.querySelector("[datetime]");
+
+    if (year) {
+        const currentYear = new Date().getFullYear().toString();
+        year?.setAttribute("datetime", currentYear);
+        year.textContent = currentYear;
+    }
+</script>

@@ -1,0 +1,87 @@
+---
+import Footer from "@/layouts/footer.astro";
+import Navigation from "@/layouts/navigation.astro";
+import "../styles/global.css";
+
+export interface Props {
+    title: string;
+    description: string;
+    keywords: string;
+    type?: string;
+}
+
+const {
+    title,
+    description,
+    keywords,
+    type = "website"
+} = Astro.props;
+---
+
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+
+        <title>Charlotte Drouilly - Kinésiologue | {title}</title>
+        <meta name="title" content={`Charlotte Drouilly - Kinésiologue | ${title}`} />
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta name="author" content="Charlotte Drouilly" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://kinesiologue-charlotte.ch" />
+
+        <!-- Geographic targeting -->
+        <meta name="geo.region" content="CH-GE" />
+        <meta name="geo.placename" content="Genève, Suisse" />
+        <meta name="geo.position" content="46.2044;6.1432" />
+        <meta name="ICBM" content="46.2044, 6.1432" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content={type} />
+        <meta property="og:url" content="https://kinesiologue-charlotte.ch" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta
+            property="og:image"
+            content="https://kinesiologue-charlotte.ch/og.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="Charlotte Drouilly, kinésiologue en Suisse dans un cadre naturel"
+        />
+        <meta property="og:locale" content="fr_CH" />
+        <meta
+            property="og:site_name"
+            content="Charlotte Drouilly Kinésiologue"
+        />
+
+        <!-- Additional SEO -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+    </head>
+    <body>
+        <Navigation />
+        <div class="min-h-screen stone-texture">
+            <slot />
+            <Footer />
+        </div>
+    </body>
+</html>
+
+<style is:global>
+    /*body {
+        font-family: var(--font-playfair);
+    }*/
+
+    .organic-shape {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%
+    }
+</style>

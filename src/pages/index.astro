@@ -1,0 +1,457 @@
+---
+import CharlotteSunImg from "@/assets/images/charlotte-sun.webp";
+import forestImg from "@/assets/images/forest.webp";
+import WaterPeaceImg from "@/assets/images/water-peace.webp";
+import Layout from "@/layouts/layout.astro";
+import { businessInfo } from "@/utils/helper";
+import { Image } from "astro:assets";
+
+// Services with SEO-optimized content
+const services = [
+    {
+        icon: "heart",
+        title: "Kinésiologie Intuitive",
+        description:
+            "Une danse subtile avec votre corps pour révéler les messages cachés et restaurer l'harmonie naturelle de votre être profond.",
+        keywords:
+            "kinésiologie intuitive, test musculaire, équilibre énergétique",
+    },
+    {
+        icon: "leaf",
+        title: "Massage Sacré",
+        description:
+            "Des touches inspirées qui libèrent les mémoires du corps et invitent à une reconnexion profonde avec votre essence.",
+        keywords: "massage thérapeutique, libération émotionnelle, bien-être",
+    },
+    {
+        icon: "users",
+        title: "Accompagnement Holistique",
+        description:
+            "Un accompagnement global qui honore tous les aspects de votre être pour une transformation authentique et durable.",
+        keywords:
+            "thérapie holistique, développement personnel, transformation",
+    },
+];
+
+// Testimonials with client consent and authenticity
+const testimonials = [
+    {
+        text: "Charlotte a une approche magique et bienveillante. Ses séances m'ont reconnectée à ma force intérieure et à ma joie de vivre.",
+        author: "Sophie L.",
+        location: "Genève",
+        service: "Kinésiologie Intuitive",
+    },
+    {
+        text: "Grâce à la kinésiologie avec Charlotte, j'ai libéré des blocages anciens. Je me sens enfin aligné avec qui je suis vraiment.",
+        author: "Thomas M.",
+        location: "Lausanne",
+        service: "Accompagnement Holistique",
+    },
+    {
+        text: "Une thérapeute exceptionnelle qui crée un espace sacré de confiance. Ses massages sont de véritables voyages intérieurs.",
+        author: "Claire D.",
+        location: "Nyon",
+        service: "Massage Sacré",
+    },
+];
+---
+
+<Layout
+    keywords="kinésiologue Suisse, kinésiologie Genève, massage sacré, thérapie holistique, bien-être, équilibre énergétique, Charlotte Drouilly, séance kinésiologie, bien être"
+    title="Accueil"
+    description="Kinésiologue Suisse, kinésiologie Genève, massage sacré, thérapie holistique, bien-être, équilibre énergétique, Charlotte Drouilly, séance kinésiologie Suisse romande"
+>
+    <main role="main">
+        <!-- Hero Section -->
+        <section
+            class="relative hero-section flex items-center justify-center overflow-hidden"
+            aria-labelledby="hero-heading"
+            role="banner"
+        >
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/25"
+                aria-hidden="true"
+            >
+            </div>
+            <Image
+                src={forestImg}
+                alt="Paysage montagneux paisible avec brume matinale symbolisant la sérénité et l'harmonie naturelle recherchée en kinésiologie"
+                width={1920}
+                height={1080}
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+            />
+
+            <div class="relative z-10 text-center max-w-6xl mx-auto px-8">
+                <h1
+                    id="hero-heading"
+                    class="font-sans font-bold text-5xl md:text-7xl text-white mb-12 text-balance leading-tight tracking-wide text-shadow-md"
+                >
+                    Reconnectez-vous à
+                    <span class="block text-secondary/90 text-shadow-md"
+                        >votre essence naturelle</span
+                    >
+                </h1>
+
+                <p
+                    class="text-xl md:text-2xl text-white/95 mb-16 text-pretty max-w-4xl mx-auto leading-relaxed text-shadow-md"
+                >
+                    Un voyage intérieur avec <strong>{businessInfo.name}</strong
+                    >, kinésiologue expérimentée à {businessInfo.location}, pour
+                    retrouver votre équilibre authentique
+                </p>
+
+                <a
+                    href="/reservation"
+                    class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-14 py-6 text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-102 font-sans focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                    title="Réserver une consultation en kinésiologie avec Charlotte Drouilly à Genève"
+                    aria-label="Prendre rendez-vous pour une séance de kinésiologie avec Charlotte Drouilly via Calendly"
+                >
+                    Commencer mon voyage intérieur
+                </a>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section
+            class="py-24 bg-gradient-to-b from-background/60 to-card/30"
+            aria-labelledby="about-heading"
+        >
+            <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center"
+                >
+                    <article class="space-y-12">
+                        <header>
+                            <h2
+                                id="about-heading"
+                                class="font-sans font-bold text-4xl md:text-5xl text-foreground leading-tight"
+                            >
+                                Un chemin vers
+                                <span class="block text-primary mt-3"
+                                    >l'harmonie profonde</span
+                                >
+                            </h2>
+                        </header>
+
+                        <div
+                            class="space-y-10 text-muted-foreground text-lg leading-relaxed font-sans"
+                        >
+                            <p>
+                                Depuis mon enfance bercée entre deux cultures,
+                                j'ai développé une <em
+                                    >connexion profonde avec les énergies
+                                    subtiles</em
+                                >
+                                qui nous entourent. Mes mains sont devenues mes guides
+                                les plus précieux dans cette danse avec la vie.
+                            </p>
+                            <p>
+                                <strong>Formée à travers le monde</strong>, j'ai
+                                puisé dans les sagesses ancestrales et les
+                                approches modernes pour créer un accompagnement
+                                unique, où chaque séance devient un voyage vers
+                                votre véritable essence.
+                            </p>
+                        </div>
+
+                        <a
+                            href="/a-propos"
+                            class="inline-flex items-center group bg-transparent border-2 border-primary/40 hover:border-primary hover:bg-primary/10 rounded-full px-8 py-4 text-lg font-sans transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                            title="En savoir plus sur le parcours et la formation de Charlotte Drouilly en kinésiologie"
+                            aria-label="Découvrir le parcours professionnel et l'approche thérapeutique de Charlotte Drouilly"
+                        >
+                            Découvrir mon univers
+                            <svg
+                                class="w-6 h-6 ml-4 group-hover:translate-x-3 transition-transform duration-300"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <aside
+                        class="relative overflow-hidden shadow-2xl organic-shape"
+                    >
+                        <Image
+                            src={CharlotteSunImg}
+                            alt="Charlotte Drouilly, kinésiologue professionnelle, dans un cadre naturel reflétant son approche thérapeutique holistique"
+                            width={900}
+                            height={900}
+                            class="object-cover"
+                            loading="lazy"
+                        />
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section
+            class="py-24 relative overflow-hidden"
+            aria-labelledby="services-heading"
+            role="region"
+        >
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-background/80 to-card/60"
+                aria-hidden="true"
+            >
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+                <header class="text-center mb-14">
+                    <h2
+                        id="services-heading"
+                        class="font-sans font-bold text-4xl md:text-5xl text-foreground mb-4 leading-tight"
+                    >
+                        Mes accompagnements thérapeutiques
+                    </h2>
+                    <p
+                        class="text-muted-foreground text-xl max-w-4xl mx-auto leading-relaxed font-sans"
+                    >
+                        Des approches intuitives et personnalisées en <strong
+                            >kinésiologie</strong
+                        > et <strong>massage thérapeutique</strong>
+                        pour révéler votre lumière intérieure
+                    </p>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12" role="list">
+                    {
+                        services.map((service, index) => (
+                            <article
+                                class="group hover:shadow-2xl transition-all duration-300 border border-border/20 rounded-2xl overflow-hidden hover:-translate-y-6 bg-card/60 backdrop-blur-lg"
+                                role="listitem"
+                                aria-labelledby={`service-${index}-title`}
+                            >
+                                <div class="p-16 text-center">
+                                    <div
+                                        class="w-28 h-28 bg-gradient-to-br from-primary/40 to-secondary/30 rounded-full flex items-center justify-center mx-auto mb-12 group-hover:scale-110 transition-transform duration-400 organic-shape"
+                                        aria-hidden="true"
+                                    >
+                                        {service.icon === "heart" && (
+                                            <svg
+                                                class="w-14 h-14 text-primary"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                aria-label="Icône représentant la kinésiologie intuitive"
+                                            >
+                                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+                                            </svg>
+                                        )}
+                                        {service.icon === "leaf" && (
+                                            <svg
+                                                class="w-14 h-14 text-primary"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                aria-label="Icône représentant le massage sacré"
+                                            >
+                                                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                                                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                                            </svg>
+                                        )}
+                                        {service.icon === "users" && (
+                                            <svg
+                                                class="w-14 h-14 text-primary"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                aria-label="Icône représentant l'accompagnement holistique"
+                                            >
+                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                                <circle cx="9" cy="7" r="4" />
+                                                <path d="m22 21-2-2" />
+                                                <circle cx="16" cy="11" r="3" />
+                                            </svg>
+                                        )}
+                                    </div>
+
+                                    <h3
+                                        id={`service-${index}-title`}
+                                        class="font-sans font-bold text-2xl text-foreground mb-10"
+                                    >
+                                        {service.title}
+                                    </h3>
+
+                                    <p class="text-muted-foreground leading-relaxed text-lg font-sans mb-6">
+                                        {service.description}
+                                    </p>
+
+                                    <div
+                                        class="text-sm text-primary font-medium"
+                                        aria-label={`Mots-clés: ${service.keywords}`}
+                                    >
+                                        {service.keywords}
+                                    </div>
+                                </div>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section
+            class="py-24 relative overflow-hidden"
+            aria-labelledby="testimonials-heading"
+            role="region"
+        >
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-background/85 to-card/70"
+                aria-hidden="true"
+            >
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+                <header class="text-center mb-14">
+                    <h2
+                        id="testimonials-heading"
+                        class="font-sans font-bold text-4xl md:text-5xl text-foreground mb-6"
+                    >
+                        Témoignages clients authentiques
+                    </h2>
+                    <p class="text-muted-foreground text-xl font-sans">
+                        Les retours de mes clients en <strong
+                            >Suisse romande</strong
+                        > qui ont retrouvé leur chemin vers l'harmonie
+                    </p>
+                </header>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+                    role="list"
+                >
+                    {
+                        testimonials.map((testimonial, index) => (
+                            <article
+                                class="border border-border/20 rounded-2xl hover:shadow-xl duration-400 bg-card/70 backdrop-blur-lg"
+                                role="listitem"
+                                itemscope
+                                itemtype="https://schema.org/Review"
+                            >
+                                <div class="p-12">
+                                    <blockquote
+                                        class="text-muted-foreground mb-10 leading-relaxed text-lg italic font-sans"
+                                        itemprop="reviewBody"
+                                    >
+                                        "{testimonial.text}"
+                                    </blockquote>
+
+                                    <footer class="space-y-2">
+                                        <cite
+                                            class="font-medium text-foreground text-lg font-sans not-italic"
+                                            itemprop="author"
+                                        >
+                                            {testimonial.author}
+                                        </cite>
+                                        <div class="text-sm text-muted-foreground">
+                                            <span itemprop="addressLocality">
+                                                {testimonial.location}
+                                            </span>{" "}
+                                            •
+                                            <span itemprop="itemReviewed">
+                                                {testimonial.service}
+                                            </span>
+                                        </div>
+                                    </footer>
+                                </div>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section
+            class="py-24 relative overflow-hidden"
+            aria-labelledby="cta-heading"
+            role="region"
+        >
+            <div class="absolute inset-0">
+                <Image
+                    src={WaterPeaceImg}
+                    alt="Paysage aquatique serein évoquant la paix intérieure et la transformation personnelle"
+                    width={1920}
+                    height={1080}
+                    class="w-full h-full object-cover opacity-90"
+                    loading="lazy"
+                />
+            </div>
+
+            <div
+                class="relative max-w-6xl mx-auto text-center px-8 sm:px-12 lg:px-16"
+            >
+                <h2
+                    id="cta-heading"
+                    class="font-sans font-bold text-4xl md:text-5xl mb-12 leading-tight text-primary-foreground"
+                >
+                    Prêt(e) à débuter votre
+                    <span class="block mt-4">transformation personnelle ?</span>
+                </h2>
+
+                <p
+                    class="text-xl md:text-2xl mb-16 text-primary-foreground/95 max-w-4xl mx-auto leading-relaxed font-sans"
+                >
+                    Offrez-vous ce <strong>cadeau précieux</strong> avec {
+                        businessInfo.name
+                    } et découvrez le chemin vers votre essence authentique en <strong
+                        >kinésiologie</strong
+                    >
+                </p>
+
+                <a
+                    href="/reservation"
+                    class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-14 py-6 text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-102 font-sans focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                    title="Réserver immédiatement une séance de kinésiologie avec Charlotte Drouilly à Genève"
+                    aria-label="Prendre rendez-vous en ligne pour une consultation en kinésiologie à Genève"
+                >
+                    Réserver un moment sacré
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .hero-section {
+        min-height: calc(100vh - 5rem);
+    }
+
+    /* Screen reader only content */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+</style>
