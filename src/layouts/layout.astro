@@ -10,12 +10,7 @@ export interface Props {
     type?: string;
 }
 
-const {
-    title,
-    description,
-    keywords,
-    type = "website"
-} = Astro.props;
+const { title, description, keywords, type = "website" } = Astro.props;
 ---
 
 <html lang="fr">
@@ -25,7 +20,10 @@ const {
         <meta name="generator" content={Astro.generator} />
 
         <title>Charlotte Drouilly - Kinésiologue | {title}</title>
-        <meta name="title" content={`Charlotte Drouilly - Kinésiologue | ${title}`} />
+        <meta
+            name="title"
+            content={`Charlotte Drouilly - Kinésiologue | ${title}`}
+        />
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta name="author" content="Charlotte Drouilly" />
@@ -69,19 +67,16 @@ const {
     </head>
     <body>
         <Navigation />
-        <div class="min-h-screen stone-texture">
+        <main class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
             <slot />
-            <Footer />
-        </div>
+        </main>
+        <Footer />
     </body>
 </html>
 
 <style is:global>
-    /*body {
-        font-family: var(--font-playfair);
-    }*/
-
     .organic-shape {
-        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%
+        min-width: 3rem;
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
     }
 </style>

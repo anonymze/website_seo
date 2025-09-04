@@ -124,14 +124,14 @@ const websiteSchema = {
     Aller au contenu principal
 </a>
 
-<header role="banner" itemscope itemtype="https://schema.org/Organization">
+<header role="banner" itemscope itemtype="https://schema.org/Organization" class="sticky top-0 z-50">
     <!-- SEO Meta Enhancement -->
     <meta name="description" content={currentNavItem.description} />
     <meta name="keywords" content={currentNavItem.keywords} />
     <link rel="canonical" href={`https://ano-dev.pro${currentPath === '/' ? '' : currentPath}`} />
 
     <nav
-        class="bg-card/70 backdrop-blur-lg border-b border-border/20 sticky top-0 z-50"
+        class="bg-card/70 backdrop-blur-lg border-b border-border/20"
         role="navigation"
         aria-label="Navigation principale du site"
         itemscope
@@ -160,7 +160,7 @@ const websiteSchema = {
                             />
                         </div>
                         <div class="flex flex-col">
-                            <span class="font-sans font-bold text-xl text-foreground tracking-wide" itemprop="name">
+                            <span class=" font-bold text-xl text-foreground tracking-wide" itemprop="name">
                                 Yann Metier
                             </span>
                             <span class="text-xs text-muted-foreground font-medium" itemprop="description">
@@ -184,8 +184,8 @@ const websiteSchema = {
                                         href={item.href}
                                         title={item.title}
                                         role="menuitem"
-                                        tabindex={index === 0 ? "0" : "-1"}
-                                        class={`text-foreground/80 hover:text-primary transition-all duration-300 font-medium text-base py-2 px-1 font-sans relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
+                                        tabindex={0}
+                                        class={`text-foreground/80 hover:text-primary transition-all duration-300 font-medium text-base py-2 px-1  relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
                                         aria-describedby={`desc-${item.href.slice(1) || 'home'}`}
                                         aria-current={isActive ? 'page' : undefined}
                                         itemprop="url"
@@ -210,7 +210,7 @@ const websiteSchema = {
                             <a
                                 href="/contact"
                                 role="menuitem"
-                                class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-200 font-sans hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                                class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-200  hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                                 title="Obtenir un devis gratuit pour votre projet web - Développeur freelance React Next.js"
                                 aria-label="Demander un devis personnalisé gratuit pour votre projet de développement web"
                                 itemprop="potentialAction"

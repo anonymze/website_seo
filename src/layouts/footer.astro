@@ -1,108 +1,173 @@
 ---
+import { Image } from "astro:assets";
 import { Phone, Mail, MapPin, Leaf } from "lucide-react";
+import LogoImg from "@/assets/images/logo.png";
 
 // Business information with structured data
 const businessInfo = {
-    name: "Charlotte Drouilly",
-    profession: "Kinésiologue",
-    phone: "+41 22 123 45 67",
-    email: "charlotte.drouilly@kinesio.ch",
+    name: "Yann Metier",
+    profession: "Développeur web",
+    phone: "+33 7 52 04 07 71",
+    email: "metier.yann@gmail.com",
     address: {
-        street: "15 Rue du Rhône",
-        city: "Genève",
-        postalCode: "1204",
-        country: "Suisse",
+        street: "11 rue des blanchers",
+        city: "Toulouse",
+        postalCode: "31000",
+        country: "France",
     },
     description:
-        "Guide kinésiologue, je vous accompagne dans votre voyage vers l'harmonie intérieure à travers des approches sacrées et personnalisées, dans un esprit de pure bienveillance.",
+        "Développeur web professionnel spécialisé dans la création de sites internet modernes et performants.",
+    website: "https://yannmetier.fr",
+    socialMedia: {
+        linkedin: "https://linkedin.com/in/yannmetier",
+        github: "https://github.com/yannmetier"
+    }
 };
 
 const navItems = [
     { href: "/", label: "Accueil", title: "Retour à la page d'accueil" },
     {
-        href: "/a-propos",
-        label: "À propos",
-        title: "En savoir plus sur Charlotte Drouilly",
+        href: "/services",
+        label: "Services",
+        title: "Consulter les devis personnalisés",
     },
     {
-        href: "/tarifs",
-        label: "Tarifs",
-        title: "Consulter les tarifs des séances",
+        href: "/portfolio",
+        label: "Portfolio",
+        title: "Présentation des projets réalisés",
     },
     {
         href: "/contact",
         label: "Contact",
-        title: "Prendre contact avec Charlotte",
-    },
-    {
-        href: "/reservation",
-        label: "Rendez-vous",
-        title: "Prendre rendez-vous en ligne pour une consultation en kinésiologie",
+        title: "Contactez-moi",
     },
 ];
+
+// JSON-LD structured data for enhanced SEO
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": businessInfo.name,
+    "jobTitle": businessInfo.profession,
+    "description": businessInfo.description,
+    "url": businessInfo.website,
+    "email": businessInfo.email,
+    "telephone": businessInfo.phone,
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": businessInfo.address.street,
+        "addressLocality": businessInfo.address.city,
+        "postalCode": businessInfo.address.postalCode,
+        "addressCountry": businessInfo.address.country
+    },
+    "sameAs": [
+        businessInfo.socialMedia.linkedin,
+        businessInfo.socialMedia.github
+    ]
+};
 ---
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
 
 <footer
     class="bg-gradient-to-b from-card/50 to-card/70 border-t border-border/20 backdrop-blur-lg"
     role="contentinfo"
+    aria-label="Informations de contact et navigation du site"
 >
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-12 pb-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-12 pb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 md:gap-20 gap-10 md:justify-items-center">
+            <!-- About Section -->
+            <section
+                class="space-y-10"
+                aria-labelledby="about-heading"
+                itemscope
+                itemtype="https://schema.org/Person"
+            >
+                <header>
+                    <h2
+                        id="about-heading"
+                        class="flex items-center md:justify-center gap-3 font-bold text-2xl text-foreground mb-10"
+                        itemprop="name"
+                    >
+                        <Image
+                            src={LogoImg}
+                            width={30}
+                            height={30}
+                            alt={`Logo de ${businessInfo.name}, développeur web professionnel`}
+                            loading="lazy"
+                        />
+                        {businessInfo.name}
+                    </h2>
+                </header>
+                <p
+                    class="text-muted-foreground text-lg leading-relaxed mb-10 md:text-center"
+                    itemprop="description"
+                >
+                    {businessInfo.description}
+                </p>
+                <meta itemprop="url" content={businessInfo.website} />
+                <meta itemprop="jobTitle" content={businessInfo.profession} />
+            </section>
             <!-- Contact Information Section -->
             <section class="space-y-10" aria-labelledby="contact-heading">
-                <h3
-                    id="contact-heading"
-                    class="font-sans font-bold text-2xl text-foreground mb-10"
-                >
-                    Contact
-                </h3>
-                <address class="not-italic space-y-8">
+                <header>
+                    <h2
+                        id="contact-heading"
+                        class="font-bold text-2xl text-foreground mb-10 md:text-center"
+                    >
+                        Contact
+                    </h2>
+                </header>
+                <address class="not-italic space-y-8" itemscope itemtype="https://schema.org/ContactPoint">
                     <div
-                        class="flex items-center space-x-6 text-muted-foreground text-lg font-sans"
+                        class="flex items-center space-x-6 text-muted-foreground text-lg "
                     >
                         <div
-                            class="w-14 h-14 flex items-center justify-center bg-secondary organic-shape"
+                            class="w-14 h-14 flex items-center justify-center bg-primary organic-shape"
                             aria-hidden="true"
                         >
-                            <Phone className="w-6 h-6 text-white" />
+                            <Phone className="w-6 h-6 text-white" aria-hidden="true" />
                         </div>
                         <a
                             href={`tel:${businessInfo.phone}`}
-                            class="hover:text-primary transition-colors duration-300"
+                            class="hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
                             aria-label={`Appeler ${businessInfo.name} au ${businessInfo.phone}`}
                             itemprop="telephone"
+                            rel="nofollow"
                         >
                             {businessInfo.phone}
                         </a>
                     </div>
 
                     <div
-                        class="flex items-center space-x-6 text-muted-foreground text-lg font-sans"
+                        class="flex items-center space-x-6 text-muted-foreground text-lg "
                     >
                         <div
-                            class="w-14 h-14 flex items-center justify-center bg-secondary organic-shape"
+                            class="w-14 h-14 flex items-center justify-center bg-primary organic-shape"
                             aria-hidden="true"
                         >
-                            <Mail className="w-6 h-6 text-white" />
+                            <Mail className="w-6 h-6 text-white" aria-hidden="true" />
                         </div>
                         <a
                             href={`mailto:${businessInfo.email}`}
-                            class="hover:text-primary transition-colors duration-300"
+                            class="hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
                             aria-label={`Envoyer un email à ${businessInfo.name}`}
                             itemprop="email"
+                            rel="nofollow"
                         >
                             {businessInfo.email}
                         </a>
                     </div>
 
                     <div
-                        class="flex items-center space-x-6 text-muted-foreground text-lg font-sans"
+                        class="flex items-center lg:gap-2 space-x-6 text-muted-foreground text-lg "
                     >
                         <div
-                            class="w-14 h-14 flex items-center justify-center bg-secondary organic-shape"
+                            class="w-14 h-14 flex items-center justify-center bg-primary organic-shape"
                             aria-hidden="true"
                         >
-                            <MapPin className="w-6 h-6 text-white" />
+                            <MapPin className="w-6 h-6 text-white" aria-hidden="true" />
                         </div>
                         <span
                             itemprop="address"
@@ -123,66 +188,56 @@ const navItems = [
                             >
                         </span>
                     </div>
+                    <meta itemprop="contactType" content="customer service" />
+                    <meta itemprop="availableLanguage" content="French" />
                 </address>
             </section>
 
             <!-- Site Navigation Section -->
-            <nav class="space-y-10" aria-labelledby="footer-nav-heading">
-                <h3
-                    id="footer-nav-heading"
-                    class="font-sans font-bold text-2xl text-foreground mb-10"
-                >
-                    Navigation
-                </h3>
-                <ul class="space-y-6" role="list">
+            <nav class="space-y-10" aria-labelledby="footer-nav-heading" role="navigation">
+                <header>
+                    <h2
+                        id="footer-nav-heading"
+                        class=" font-bold text-2xl text-foreground mb-10"
+                    >
+                        Navigation
+                    </h2>
+                </header>
+                <ul class="space-y-6 md:flex md:flex-col md:items-center" role="list">
                     {
-                        navItems.map((item) => (
+                        navItems.map((item, index) => (
                             <li>
                                 <a
                                     href={item.href}
                                     title={item.title}
-                                    class="block text-muted-foreground hover:text-primary transition-all duration-300 text-lg hover:translate-x-3 py-0.5 font-sans focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                                    class="block text-muted-foreground hover:text-primary transition-all duration-300 text-lg hover:translate-x-3 py-0.5  focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                                    aria-describedby={`nav-desc-${index}`}
                                 >
                                     {item.label}
+                                    <span id={`nav-desc-${index}`} class="sr-only">
+                                        {item.title}
+                                    </span>
                                 </a>
                             </li>
                         ))
                     }
                 </ul>
             </nav>
-
-            <!-- About Section -->
-            <section
-                class="space-y-10"
-                aria-labelledby="about-heading"
-                itemscope
-                itemtype="https://schema.org/Person"
-            >
-                <h3
-                    id="about-heading"
-                    class="font-sans font-bold text-2xl text-foreground mb-10"
-                    itemprop="name"
-                >
-                    {businessInfo.name}
-                </h3>
-                <p
-                    class="text-muted-foreground text-lg leading-relaxed mb-10 font-sans"
-                    itemprop="description"
-                >
-                    {businessInfo.description}
-                </p>
-            </section>
         </div>
+
+        <hr class="mt-4">
 
         <!-- Copyright Section -->
-        <div class="border-t border-border/20 mt-10 pt-8 text-center">
-            <p class="text-muted-foreground text-lg font-sans">
-                © <time datetime="2025">2025</time>
+        <section class="border-t border-border/20 pt-8 text-center" aria-label="Informations de copyright">
+            <p class="text-muted-foreground text-lg " itemscope itemtype="https://schema.org/Organization">
+                © <time datetime="2025" itemprop="copyrightYear">2025</time>
                 <span itemprop="name">{businessInfo.name}</span> -
-                <span itemprop="jobTitle">{businessInfo.profession}</span>. Tous
+                <span itemprop="description">{businessInfo.profession}</span>. Tous
                 droits réservés.
+                <meta itemprop="copyrightHolder" content={businessInfo.name} />
+                <meta itemprop="inLanguage" content="fr-FR" />
             </p>
-        </div>
+        </section>
     </div>
 </footer>
 

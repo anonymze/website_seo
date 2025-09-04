@@ -1,5 +1,5 @@
 import React from "react"
-import { Menu, X, Phone, Calendar1Icon } from "lucide-react"
+import { Menu, X, Phone, Calendar1Icon, PenIcon } from "lucide-react"
 
 interface NavItem {
   href: string
@@ -63,7 +63,7 @@ export default function MobileMenuToggle({ navItems }: MobileMenuToggleProps) {
           role="menu"
           aria-orientation="vertical"
         >
-          <div className="mx-6 px-4 pt-4 pb-6 space-y-3 bg-card/95 backdrop-blur-sm rounded-lg mt-4 border border-border/30 shadow-xl animate-in slide-in-from-top-2 duration-200">
+          <div className="mx-6 px-4 pt-4 pb-6 space-y-3 bg-card rounded-lg mt-4 border border-border/30 shadow-xl animate-in slide-in-from-top-2 duration-200">
             {navItems.map((item, index) => (
               <a
                 key={item.href}
@@ -78,12 +78,12 @@ export default function MobileMenuToggle({ navItems }: MobileMenuToggleProps) {
             ))}
             <div className="px-4 py-2">
               <a
-                href="/reservation"
-                className="flex items-center justify-center w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-4 font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                href="/services"
+                className="flex items-center justify-center w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg py-4 font-medium transition-background duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 onClick={() => setIsOpen(false)}
               >
-                <Calendar1Icon className="w-4 h-4 mr-2" />
-                Réserver
+                <PenIcon className="w-4 h-4 mr-2" />
+                Obtenir un devis
               </a>
             </div>
           </div>
