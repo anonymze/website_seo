@@ -3,60 +3,50 @@ import Layout from "@/layouts/layout.astro";
 
 // Page SEO data
 const pageData = {
-    title: "Contact - Charlotte Drouilly Kinésiologue France & Suisse",
+    title: "Contact - Yann Metier Création de Sites Web",
     description:
-        "Contactez Charlotte Drouilly, kinésiologue. Réservez votre séance de kinésiologie ou massage bien-être. Cabinets à Genève et en France.",
+        "Contactez Yann Metier pour la création de votre site web. Développeur web professionnel basé en France.",
     keywords:
-        "contact kinésiologue France Suisse, rendez-vous kinésiologie Genève, Charlotte Drouilly cabinet France Suisse, réservation séance kinésiologie",
+        "contact développeur web France, création site web, Yann Metier développeur, freelance création sites internet",
 };
 
 // Contact information
 const contactInfo = [
     {
-        icon: "clock",
-        title: "Horaires",
-        value: "Lundi - Vendredi : 9h - 19h",
-        subtitle: "Samedi : 9h - 17h • Dimanche : Fermé",
-    },
-    {
         icon: "mail",
         title: "Email",
-        value: "charlotte@kinesiologie.ch",
-        subtitle: "Réponse sous 48h en moyenne",
+        value: "metier.yann@gmail.com",
+        subtitle: "Réponse sous 24h en moyenne",
     },
     {
         icon: "phone",
-        title: "Téléphone Suisse",
-        value: "+41 22 123 45 67",
-        country: "ch",
-        flagEmoji: "🇨🇭",
+        title: "Téléphone",
+        value: "+33 7 52 04 07 71",
+        subtitle: "Du lundi au dimanche",
     },
     {
-        icon: "phone",
-        title: "Téléphone France",
-        value: "+33 6 12 34 56 78",
-        country: "fr",
-        flagEmoji: "🇫🇷",
+        icon: "linkedin",
+        title: "LinkedIn",
+        value: "Yann Metier",
+        subtitle: "Profil professionnel",
+        url: "https://www.linkedin.com/in/yann-metier-147706156/",
+    },
+    {
+        icon: "facebook",
+        title: "Facebook",
+        value: "Yann Metier",
+        subtitle: "Page professionnelle",
+        url: "https://facebook.com/yann.metier",
     },
 ];
 
-// Cabinet locations
-const cabinetLocations = [
-    {
-        country: "Suisse",
-        title: "Mon cabinet à Genève",
-        address: "Rue du Rhône 123, 1204 Genève, Suisse",
-        flagEmoji: "🇨🇭",
-        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2762.5!2d6.1443!3d46.2044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c6504a3b91f8b%3A0x1234567890!2sGenève%2C%20Switzerland!5e0!3m2!1sen!2sfr!4v1234567890",
-    },
-    {
-        country: "France",
-        title: "Mon cabinet en France",
-        address: "Rue de la Paix 45, 74100 Annemasse, France",
-        flagEmoji: "🇫🇷",
-        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2762.5!2d6.2358!3d46.1944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c655c8b7b3a4f%3A0x1234567890!2sAnnemasse%2C%20France!5e0!3m2!1sen!2sfr!4v1234567890",
-    },
-];
+// Location information
+const locationInfo = {
+    title: "Ma localisation",
+    address: "France - Toulouse",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d186973.25674053936!2d1.3628007068633672!3d43.60426024977977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ff%3A0x406f69c2f411030!2sToulouse%2C%20France!5e0!3m2!1sen!2sfr!4v1641234567890",
+};
+
 ---
 
 <Layout
@@ -65,10 +55,9 @@ const cabinetLocations = [
     keywords={pageData.keywords}
     type="website"
 >
-    <main role="main">
         <!-- Hero Section -->
         <section
-            class="pt-24 bg-gradient-to-b from-card/60 to-background/30"
+            class="pt-20 bg-gradient-to-b from-card/60 to-background/30"
             aria-labelledby="hero-heading"
             role="banner"
         >
@@ -83,10 +72,11 @@ const cabinetLocations = [
                     <p
                         class="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed"
                     >
-                        Je serais ravie de <strong
+                        Je serais ravi de <strong
                             >répondre à vos questions</strong
-                        > et de vous accompagner dans votre
-                        <strong>parcours bien-être</strong> en kinésiologie
+                        > et de discuter de votre
+                        <strong>projet de site internet</strong>.
+                        Même si nous ne travaillons pas ensemble, c'est avec plaisir que je peux vous <strong>conseiller et vous guider</strong> si vous avez des interrogations.
                     </p>
                 </header>
             </div>
@@ -147,7 +137,7 @@ const cabinetLocations = [
                                                     <path d="m22 7-10 5L2 7" />
                                                 </svg>
                                             )}
-                                            {info.icon === "map" && (
+                                            {info.icon === "linkedin" && (
                                                 <svg
                                                     class="w-6 h-6 text-white"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -159,15 +149,12 @@ const cabinetLocations = [
                                                     stroke-linejoin="round"
                                                     aria-hidden="true"
                                                 >
-                                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                                                    <circle
-                                                        cx="12"
-                                                        cy="10"
-                                                        r="3"
-                                                    />
+                                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                                    <rect width="4" height="12" x="2" y="9"/>
+                                                    <circle cx="4" cy="4" r="2"/>
                                                 </svg>
                                             )}
-                                            {info.icon === "clock" && (
+                                            {info.icon === "facebook" && (
                                                 <svg
                                                     class="w-6 h-6 text-white"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -179,30 +166,28 @@ const cabinetLocations = [
                                                     stroke-linejoin="round"
                                                     aria-hidden="true"
                                                 >
-                                                    <circle
-                                                        cx="12"
-                                                        cy="12"
-                                                        r="10"
-                                                    />
-                                                    <polyline points="12,6 12,12 16,14" />
+                                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                                                 </svg>
                                             )}
                                         </div>
                                         <div>
                                             <h3 class="font-medium text-foreground mb-1 flex items-center">
                                                 {info.title}
-                                                {info.flagEmoji && (
-                                                    <span
-                                                        class="ml-2 text-lg"
-                                                        aria-label={`Drapeau ${info.country === "ch" ? "Suisse" : "France"}`}
-                                                    >
-                                                        {info.flagEmoji}
-                                                    </span>
-                                                )}
                                             </h3>
-                                            <p class="text-muted-foreground">
-                                                {info.value}
-                                            </p>
+                                            {info.url ? (
+                                                <a
+                                                    href={info.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="text-primary hover:text-primary/80 transition-colors underline"
+                                                >
+                                                    {info.value}
+                                                </a>
+                                            ) : (
+                                                <p class="text-muted-foreground">
+                                                    {info.value}
+                                                </p>
+                                            )}
                                             <p class="text-sm text-muted-foreground mt-1">
                                                 {info.subtitle}
                                             </p>
@@ -218,78 +203,62 @@ const cabinetLocations = [
 
         <!-- Location Section -->
         <section
-            class="py-20 bg-gradient-to-b from-card/40 to-background/60"
+            class="py-16 bg-gradient-to-b from-card/40 to-background/60"
             aria-labelledby="location-heading"
         >
             <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
-                <header class="text-center mb-12">
+                <header class="text-center mb-8">
                     <h2
                         id="location-heading"
-                        class=" font-bold text-3xl text-foreground mb-4"
+                        class="font-bold text-3xl text-foreground mb-2"
                     >
-                        Mes cabinets
+                        {locationInfo.title}
                     </h2>
                     <p class="text-muted-foreground text-lg">
-                        Deux espaces de sérénité pour votre bien-être
+                        Développeur web basé en France
                     </p>
                 </header>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    {
-                        cabinetLocations.map((cabinet, index) => (
-                            <article class="border border-border/20 rounded-3xl bg-card/60 backdrop-blur-lg overflow-hidden">
-                                <div class="p-8 pb-6">
-                                    <h3 class=" font-bold text-2xl text-foreground mb-4 flex items-center">
-                                        <svg
-                                            class="w-6 h-6 mr-3 text-primary flex-shrink-0"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            aria-hidden="true"
-                                        >
-                                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                                            <circle cx="12" cy="10" r="3" />
-                                        </svg>
-                                        {cabinet.title}
-                                        <span
-                                            class="ml-2 text-2xl"
-                                            aria-label={`Drapeau ${cabinet.country}`}
-                                        >
-                                            {cabinet.flagEmoji}
-                                        </span>
-                                    </h3>
+                <div class="max-w-4xl mx-auto">
+                    <article class="border border-border/20 rounded-3xl bg-card/60 backdrop-blur-lg overflow-hidden">
+                        <div class="p-8 pb-2">
+                            <h3 class="font-bold text-2xl text-foreground mb-4 flex items-center">
+                                <svg
+                                    class="w-6 h-6 mr-3 text-primary flex-shrink-0"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                {locationInfo.address}
+                                <span class="ml-2 text-2xl" aria-label="Drapeau France">🇫🇷</span>
+                            </h3>
+                        </div>
 
-                                    <div class="bg-primary/10 rounded-2xl p-4 border border-primary/20 mb-6">
-                                        <p class="text-sm text-foreground font-medium">
-                                            {cabinet.address}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="px-8 pb-8">
-                                    <div class="aspect-[16/10] rounded-2xl overflow-hidden border border-border/20 bg-gradient-to-br from-primary/5 to-secondary/5">
-                                        <iframe
-                                            src={cabinet.mapUrl}
-                                            width="100%"
-                                            height="100%"
-                                            style="border:0;"
-                                            allowfullscreen=""
-                                            loading="lazy"
-                                            referrerpolicy="no-referrer-when-downgrade"
-                                            title={`Carte Google Maps - ${cabinet.title}`}
-                                            aria-label={`Localisation du ${cabinet.title} à ${cabinet.address}`}
-                                        />
-                                    </div>
-                                </div>
-                            </article>
-                        ))
-                    }
+                        <div class="px-8 pb-8">
+                            <div class="aspect-[16/10] rounded-2xl overflow-hidden border border-border/20 bg-gradient-to-br from-primary/5 to-secondary/5">
+                                <iframe
+                                    src={locationInfo.mapUrl}
+                                    width="100%"
+                                    height="100%"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Carte Google Maps - France"
+                                    aria-label="Localisation en France"
+                                />
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
-    </main>
 </Layout>

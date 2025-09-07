@@ -19,9 +19,9 @@ const businessInfo = {
         "Développeur web professionnel spécialisé dans la création de sites internet modernes et performants.",
     website: "https://yannmetier.fr",
     socialMedia: {
-        linkedin: "https://linkedin.com/in/yannmetier",
-        github: "https://github.com/yannmetier"
-    }
+        linkedin: "https://linkedin.com/in/yann-metier",
+        facebook: "https://facebook.com/yann.metier",
+    },
 };
 
 const navItems = [
@@ -32,7 +32,8 @@ const navItems = [
         title: "Consulter les devis personnalisés",
     },
     {
-        href: "/portfolio",
+        href: "https://portfolio-2024-7z7.pages.dev",
+        target: "_blank",
         label: "Portfolio",
         title: "Présentation des projets réalisés",
     },
@@ -47,28 +48,28 @@ const navItems = [
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": businessInfo.name,
-    "jobTitle": businessInfo.profession,
-    "description": businessInfo.description,
-    "url": businessInfo.website,
-    "email": businessInfo.email,
-    "telephone": businessInfo.phone,
-    "address": {
+    name: businessInfo.name,
+    jobTitle: businessInfo.profession,
+    description: businessInfo.description,
+    url: businessInfo.website,
+    email: businessInfo.email,
+    telephone: businessInfo.phone,
+    address: {
         "@type": "PostalAddress",
-        "streetAddress": businessInfo.address.street,
-        "addressLocality": businessInfo.address.city,
-        "postalCode": businessInfo.address.postalCode,
-        "addressCountry": businessInfo.address.country
+        streetAddress: businessInfo.address.street,
+        addressLocality: businessInfo.address.city,
+        postalCode: businessInfo.address.postalCode,
+        addressCountry: businessInfo.address.country,
     },
-    "sameAs": [
+    sameAs: [
         businessInfo.socialMedia.linkedin,
-        businessInfo.socialMedia.github
-    ]
+        businessInfo.socialMedia.facebook,
+    ],
 };
 ---
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <footer
     class="bg-gradient-to-b from-card/50 to-card/70 border-t border-border/20 backdrop-blur-lg"
@@ -76,7 +77,9 @@ const jsonLd = {
     aria-label="Informations de contact et navigation du site"
 >
     <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-12 pb-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 md:gap-20 gap-10 md:justify-items-center">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 md:gap-12 gap-10 md:justify-items-center"
+        >
             <!-- About Section -->
             <section
                 class="space-y-10"
@@ -101,7 +104,7 @@ const jsonLd = {
                     </h2>
                 </header>
                 <p
-                    class="text-muted-foreground text-lg leading-relaxed mb-10 md:text-center"
+                    class="text-muted-foreground text-lg leading-relaxed mb-2 md:text-center"
                     itemprop="description"
                 >
                     {businessInfo.description}
@@ -109,6 +112,49 @@ const jsonLd = {
                 <meta itemprop="url" content={businessInfo.website} />
                 <meta itemprop="jobTitle" content={businessInfo.profession} />
             </section>
+
+            <!-- Site Navigation Section -->
+            <nav
+                class="space-y-10"
+                aria-labelledby="footer-nav-heading"
+                role="navigation"
+            >
+                <header>
+                    <h2
+                        id="footer-nav-heading"
+                        class="font-bold text-2xl text-foreground mb-10 md:text-center"
+                    >
+                        Navigation
+                    </h2>
+                </header>
+                <ul
+                    class="space-y-6 md:flex md:flex-col md:items-center"
+                    role="list"
+                >
+                    {
+                        navItems.map((item, index) => (
+                            <li>
+                                <a
+                                    href={item.href}
+                                    title={item.title}
+                                    target={item.target ? "_blank" : undefined}
+                                    class="block text-muted-foreground hover:text-primary transition-all duration-300 text-lg hover:translate-x-3 py-0.5  focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                                    aria-describedby={`nav-desc-${index}`}
+                                >
+                                    {item.label}
+                                    <span
+                                        id={`nav-desc-${index}`}
+                                        class="sr-only"
+                                    >
+                                        {item.title}
+                                    </span>
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+
             <!-- Contact Information Section -->
             <section class="space-y-10" aria-labelledby="contact-heading">
                 <header>
@@ -119,15 +165,22 @@ const jsonLd = {
                         Contact
                     </h2>
                 </header>
-                <address class="not-italic space-y-8" itemscope itemtype="https://schema.org/ContactPoint">
+                <address
+                    class="not-italic space-y-8"
+                    itemscope
+                    itemtype="https://schema.org/ContactPoint"
+                >
                     <div
-                        class="flex items-center space-x-6 text-muted-foreground text-lg "
+                        class="flex items-center space-x-6 text-muted-foreground text-lg"
                     >
                         <div
                             class="w-14 h-14 flex items-center justify-center bg-primary organic-shape"
                             aria-hidden="true"
                         >
-                            <Phone className="w-6 h-6 text-white" aria-hidden="true" />
+                            <Phone
+                                className="w-6 h-6 text-white"
+                                aria-hidden="true"
+                            />
                         </div>
                         <a
                             href={`tel:${businessInfo.phone}`}
@@ -141,13 +194,16 @@ const jsonLd = {
                     </div>
 
                     <div
-                        class="flex items-center space-x-6 text-muted-foreground text-lg "
+                        class="flex items-center space-x-6 text-muted-foreground text-lg"
                     >
                         <div
                             class="w-14 h-14 flex items-center justify-center bg-primary organic-shape"
                             aria-hidden="true"
                         >
-                            <Mail className="w-6 h-6 text-white" aria-hidden="true" />
+                            <Mail
+                                className="w-6 h-6 text-white"
+                                aria-hidden="true"
+                            />
                         </div>
                         <a
                             href={`mailto:${businessInfo.email}`}
@@ -161,13 +217,16 @@ const jsonLd = {
                     </div>
 
                     <div
-                        class="flex items-center lg:gap-2 space-x-6 text-muted-foreground text-lg "
+                        class="flex items-center lg:gap-2 space-x-6 text-muted-foreground text-lg"
                     >
                         <div
                             class="w-14 h-14 flex items-center justify-center bg-primary organic-shape"
                             aria-hidden="true"
                         >
-                            <MapPin className="w-6 h-6 text-white" aria-hidden="true" />
+                            <MapPin
+                                className="w-6 h-6 text-white"
+                                aria-hidden="true"
+                            />
                         </div>
                         <span
                             itemprop="address"
@@ -193,47 +252,69 @@ const jsonLd = {
                 </address>
             </section>
 
-            <!-- Site Navigation Section -->
-            <nav class="space-y-10" aria-labelledby="footer-nav-heading" role="navigation">
+            <!-- Social Media Section -->
+            <section class="space-y-10" aria-labelledby="social-heading">
                 <header>
                     <h2
-                        id="footer-nav-heading"
-                        class=" font-bold text-2xl text-foreground mb-10"
+                        id="social-heading"
+                        class="font-bold text-2xl text-foreground mb-10 md:text-center"
                     >
-                        Navigation
+                        Réseaux sociaux
                     </h2>
                 </header>
-                <ul class="space-y-6 md:flex md:flex-col md:items-center" role="list">
-                    {
-                        navItems.map((item, index) => (
-                            <li>
-                                <a
-                                    href={item.href}
-                                    title={item.title}
-                                    class="block text-muted-foreground hover:text-primary transition-all duration-300 text-lg hover:translate-x-3 py-0.5  focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
-                                    aria-describedby={`nav-desc-${index}`}
-                                >
-                                    {item.label}
-                                    <span id={`nav-desc-${index}`} class="sr-only">
-                                        {item.title}
-                                    </span>
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </nav>
+                <div class="flex space-x-6 justify-start md:justify-center">
+                    <a
+                        href={businessInfo.socialMedia.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-12 h-12 flex items-center justify-center bg-primary hover:bg-primary/80 transition-colors duration-300 organic-shape focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                        aria-label="Suivre sur LinkedIn"
+                    >
+                        <svg
+                            class="w-6 h-6 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a
+                        href={businessInfo.socialMedia.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-12 h-12 flex items-center justify-center bg-primary hover:bg-primary/80 transition-colors duration-300 organic-shape focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                        aria-label="Suivre sur Facebook"
+                    >
+                        <svg
+                            class="w-6 h-6 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+            </section>
         </div>
 
-        <hr class="mt-4">
+        <hr class="mt-4" />
 
         <!-- Copyright Section -->
-        <section class="border-t border-border/20 pt-8 text-center" aria-label="Informations de copyright">
-            <p class="text-muted-foreground text-lg " itemscope itemtype="https://schema.org/Organization">
+        <section
+            class="border-t border-border/20 pt-8 text-center"
+            aria-label="Informations de copyright"
+        >
+            <p
+                class="text-muted-foreground text-lg"
+                itemscope
+                itemtype="https://schema.org/Organization"
+            >
                 © <time datetime="2025" itemprop="copyrightYear">2025</time>
                 <span itemprop="name">{businessInfo.name}</span> -
-                <span itemprop="description">{businessInfo.profession}</span>. Tous
-                droits réservés.
+                <span itemprop="description">{businessInfo.profession}</span>.
+                Tous droits réservés.
                 <meta itemprop="copyrightHolder" content={businessInfo.name} />
                 <meta itemprop="inLanguage" content="fr-FR" />
             </p>
