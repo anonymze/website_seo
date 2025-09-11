@@ -19,42 +19,37 @@ const { title, description, keywords, type = "website" } = Astro.props;
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
 
-        <title>Charlotte Drouilly - Kinésiologue | {title}</title>
-        <meta
-            name="title"
-            content={`Charlotte Drouilly - Kinésiologue | ${title}`}
-        />
+        <title>{title}</title>
+        <meta name="title" content={title} />
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <meta name="author" content="Charlotte Drouilly" />
+        <meta name="author" content="Expert Création Sites Web" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://kinesiologue-charlotte.ch" />
+        <link rel="canonical" href={`https://creation-site-web.fr${Astro.url.pathname}`} />
 
         <!-- Geographic targeting -->
-        <meta name="geo.region" content="CH-GE" />
-        <meta name="geo.placename" content="Genève, Suisse" />
-        <meta name="geo.position" content="46.2044;6.1432" />
-        <meta name="ICBM" content="46.2044, 6.1432" />
+        <meta name="geo.region" content="FR" />
+        <meta name="geo.placename" content="France" />
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content={type} />
-        <meta property="og:url" content="https://kinesiologue-charlotte.ch" />
+        <meta property="og:url" content={`https://creation-site-web.fr${Astro.url.pathname}`} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta
             property="og:image"
-            content="https://kinesiologue-charlotte.ch/og.png"
+            content="https://creation-site-web.fr/og.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
             property="og:image:alt"
-            content="Charlotte Drouilly, kinésiologue en Suisse dans un cadre naturel"
+            content="Expert création site internet professionnel - Développement web sur-mesure"
         />
-        <meta property="og:locale" content="fr_CH" />
+        <meta property="og:locale" content="fr_FR" />
         <meta
             property="og:site_name"
-            content="Charlotte Drouilly Kinésiologue"
+            content="Création Site Web Professionnel"
         />
 
         <!-- Additional SEO -->

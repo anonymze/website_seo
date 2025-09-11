@@ -8,7 +8,7 @@ const pageData = {
     description:
         "Découvrez mes services de création de sites web : sites vitrines, e-commerce, applications mobiles. Devis personnalisés et solutions sur-mesure.",
     keywords:
-        "services web, création site vitrine, e-commerce, développement web, devis site internet, développeur freelance France",
+        "calculateur prix site internet, devis site web automatique, estimation coût création site, tarif développeur web freelance, services création sites professionnels France",
 };
 
 // Features data
@@ -84,10 +84,81 @@ const features = [
     keywords={pageData.keywords}
     type="website"
 >
+    <!-- Schema.org Service données structurées -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": "https://creation-site-web.fr/services",
+        "name": "Calculateur Prix Site Internet",
+        "description": "Outil en ligne pour estimer le prix de création de votre site internet. Devis personnalisé et gratuit pour tous projets web.",
+        "url": "https://creation-site-web.fr/services",
+        "provider": {
+            "@type": "Person",
+            "name": "Yann Metier",
+            "jobTitle": "Développeur Web Freelance"
+        },
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Site Responsive Mobile",
+                "price": "0",
+                "priceCurrency": "EUR",
+                "description": "Site adapté mobile et tablette - Inclus"
+            },
+            {
+                "@type": "Offer",
+                "name": "Référencement Google",
+                "price": "0",
+                "priceCurrency": "EUR",
+                "description": "Référencement Google de base - Inclus"
+            },
+            {
+                "@type": "Offer",
+                "name": "Design IA Personnalisé",
+                "price": "0",
+                "priceCurrency": "EUR",
+                "description": "2 propositions de design générées par IA - Inclus"
+            },
+            {
+                "@type": "Offer",
+                "name": "Statistiques Détaillées",
+                "price": "50",
+                "priceCurrency": "EUR",
+                "description": "Analytics et statistiques de visite avancées"
+            },
+            {
+                "@type": "Offer",
+                "name": "Newsletter Automatique",
+                "price": "100",
+                "priceCurrency": "EUR",
+                "description": "Système d'envoi emails + 8€/mois"
+            },
+            {
+                "@type": "Offer",
+                "name": "Site Multilingue",
+                "price": "200",
+                "priceCurrency": "EUR",
+                "description": "Site disponible en plusieurs langues"
+            },
+            {
+                "@type": "Offer",
+                "name": "Paiement Sécurisé",
+                "price": "600",
+                "priceCurrency": "EUR",
+                "description": "Intégration paiement en ligne sécurisé"
+            }
+        ],
+        "areaServed": {
+            "@type": "Country",
+            "name": "France"
+        }
+    }
+    </script>
     <!-- Hero Section -->
     <section
-        class="pt-20 bg-gradient-to-b from-card/60 to-background/30"
-        aria-labelledby="hero-heading"
+        class="pt-20"
+        aria-labelledby="services-hero-heading"
         role="banner"
     >
         <header class="text-center mb-12">
@@ -97,7 +168,7 @@ const features = [
                 <CalculatorIcon className="w-6 h-6 text-primary" />
             </div>
             <h1
-                id="hero-heading"
+                id="services-hero-heading"
                 class="font-bold text-4xl md:text-5xl text-foreground mb-6 leading-tight"
             >
                 Estimez le prix de votre site internet
@@ -113,12 +184,12 @@ const features = [
     </section>
 
     <!-- Quote Form Section -->
-    <section class="pb-20" aria-labelledby="quote-heading">
+    <section class="pb-20" aria-labelledby="quote-configurator-heading">
         <article
             class="border border-border/20 rounded-3xl bg-card/60 backdrop-blur-lg overflow-hidden"
         >
             <header class="p-8 pb-6 border-b border-border/20">
-                <h2 class="text-2xl font-bold text-foreground mb-2">
+                <h2 id="quote-configurator-heading" class="text-2xl font-bold text-foreground mb-2">
                     Configurateur de devis
                 </h2>
                 <p class="text-muted-foreground">
@@ -129,11 +200,10 @@ const features = [
 
             <div class="p-8 space-y-6">
                 <!-- Features -->
-                <div class="space-y-4">
-                    <label
-                        class="text-sm font-medium text-foreground inline-block"
-                        >Fonctionnalités souhaitées</label
-                    >
+                <fieldset class="space-y-4">
+                    <legend class="text-sm font-medium text-foreground inline-block">
+                        Fonctionnalités souhaitées
+                    </legend>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {
                             features.map((feature) => (
@@ -178,7 +248,7 @@ const features = [
                             ))
                         }
                     </div>
-                </div>
+                </fieldset>
 
                 <!-- Price Display -->
                 <div id="price-display" class="p-4 bg-muted rounded-lg">

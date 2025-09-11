@@ -15,10 +15,92 @@ import {
 ---
 
 <Layout
-    title="Création Site Internet Professionnel | Devis Gratuit & Créer Site Web"
-    description="Création de site internet professionnel. Devis gratuit en 24h pour créer votre site web moderne, rapide et visible sur Google. Expert création site internet France."
-    keywords="création site internet, devis site internet, créer site internet, créer site web, site internet professionnel, creation site web, faire un site internet, prix site internet, créateur site internet France"
+    title="Création Site Internet Professionnel | Devis Gratuit"
+    description="Expert création site internet professionnel. Devis gratuit en 24h pour créer votre site web moderne, rapide et visible sur Google. Développement web sur-mesure France."
+    keywords="création site internet, site internet professionnel, développeur web, devis site web, créer site internet, développement web sur-mesure, référencement SEO, site responsive France"
 >
+    <!-- Schema.org données structurées -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://creation-site-web.fr",
+        "name": "Expert Création Site Internet",
+        "description": "Expert en création de sites internet professionnels. Développement web sur-mesure avec référencement SEO inclus.",
+        "url": "https://creation-site-web.fr",
+        "sameAs": [],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR",
+            "addressRegion": "France"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "46.2276",
+            "longitude": "2.2137"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "priceRange": "€€",
+        "offers": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Site Vitrine",
+                    "description": "Site web professionnel pour présenter votre entreprise"
+                },
+                "price": "700",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "price": "700",
+                    "priceCurrency": "EUR",
+                    "valueAddedTaxIncluded": false
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Site Corporate",
+                    "description": "Site web d'entreprise avec fonctionnalités avancées"
+                },
+                "price": "1300",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "price": "1300",
+                    "priceCurrency": "EUR",
+                    "valueAddedTaxIncluded": false
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "E-commerce",
+                    "description": "Boutique en ligne complète"
+                },
+                "price": "1900",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "price": "1900",
+                    "priceCurrency": "EUR",
+                    "valueAddedTaxIncluded": false
+                }
+            }
+        ],
+        "serviceType": "Création site internet",
+        "provider": {
+            "@type": "Organization",
+            "name": "Expert Création Site Internet"
+        }
+    }
+    </script>
         <section
             class="text-center py-20"
             itemscope
@@ -70,15 +152,16 @@ import {
             </div>
 
             <section
-                class="flex gap-6 items-center justify-center mt-20 md:flex-row flex-col"
-                aria-labelledby="services-heading"
+                class="mt-20"
+                aria-labelledby="hero-services-heading"
                 itemscope
                 itemtype="https://schema.org/ItemList"
             >
-                <h2 id="services-heading" class="sr-only">
-                    Nos services de création de sites internet
+                <h2 id="hero-services-heading" class="text-2xl font-bold mb-8 text-center w-full">
+                    Expertise développement web
                 </h2>
 
+                <div class="flex gap-6 items-center justify-center md:flex-row flex-col">
                 <article
                     class="bg-gray-100 rounded-lg p-6 text-center flex-1 w-full"
                     itemscope
@@ -144,6 +227,7 @@ import {
                         rapide sur Google
                     </p>
                 </article>
+                </div>
             </section>
 
             <div
@@ -165,14 +249,14 @@ import {
         <!-- services -->
         <section
             class="mb-20 text-center"
-            aria-labelledby="services-heading"
+            aria-labelledby="main-services-heading"
             itemscope
             itemtype="https://schema.org/ItemList"
             id="services-creation-site-internet"
         >
             <h2
-                id="services-heading"
-                class="font-bold text-4xl text-balance"
+                id="main-services-heading"
+                class="font-bold text-3xl text-balance"
                 itemprop="name"
             >
                 Services création site internet professionnel
@@ -314,10 +398,8 @@ import {
                     >
                         <li class="text-sm my-2">Panier & paiement sécurisé</li>
                         <li class="text-sm my-2">Référencement optimal</li>
-                        <li class="text-sm my-2">
-                            Outil de gestion de produits
-                            <li class="text-sm my-2">Gestion des commandes</li>
-                        </li>
+                        <li class="text-sm my-2">Outil de gestion de produits</li>
+                        <li class="text-sm my-2">Gestion des commandes</li>
                     </ul>
 
                     <hr class="my-6" />

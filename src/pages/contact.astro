@@ -7,7 +7,7 @@ const pageData = {
     description:
         "Contactez Yann Metier pour la création de votre site web. Développeur web professionnel basé en France.",
     keywords:
-        "contact développeur web France, création site web, Yann Metier développeur, freelance création sites internet",
+        "contact développeur web freelance, Yann Metier développeur, devis création site web, développeur web France, freelance sites internet professionnels",
 };
 
 // Contact information
@@ -55,16 +55,62 @@ const locationInfo = {
     keywords={pageData.keywords}
     type="website"
 >
+    <!-- Schema.org Person données structurées -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://creation-site-web.fr/contact",
+        "name": "Yann Metier",
+        "jobTitle": "Développeur Web Freelance",
+        "description": "Développeur web freelance expert en React, Next.js et Expo. Création de sites internet professionnels et applications web sur-mesure.",
+        "url": "https://creation-site-web.fr",
+        "image": "https://creation-site-web.fr/yann-metier-developer.jpg",
+        "email": "metier.yann@gmail.com",
+        "telephone": "+33752040771",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR",
+            "addressLocality": "Toulouse",
+            "addressRegion": "Occitanie"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/yann-metier-147706156/",
+            "https://facebook.com/yann.metier"
+        ],
+        "knowsAbout": [
+            "Développement Web",
+            "React",
+            "Next.js",
+            "Expo",
+            "JavaScript",
+            "TypeScript",
+            "Création Sites Internet"
+        ],
+        "offers": {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "name": "Création Site Internet",
+                "description": "Développement de sites web professionnels sur-mesure"
+            },
+            "areaServed": {
+                "@type": "Country",
+                "name": "France"
+            }
+        }
+    }
+    </script>
         <!-- Hero Section -->
         <section
             class="pt-20 bg-gradient-to-b from-card/60 to-background/30"
-            aria-labelledby="hero-heading"
+            aria-labelledby="contact-hero-heading"
             role="banner"
         >
             <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
                 <header class="text-center mb-12">
                     <h1
-                        id="hero-heading"
+                        id="contact-hero-heading"
                         class=" font-bold text-4xl md:text-5xl text-foreground mb-6 leading-tight"
                     >
                         Contactez-moi
@@ -83,8 +129,17 @@ const locationInfo = {
         </section>
 
         <!-- Contact Section -->
-        <section class="py-4" aria-labelledby="contact-heading">
+        <section class="py-4" aria-labelledby="contact-info-heading">
             <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+                <header class="text-center mb-8">
+                    <h2 id="contact-info-heading" class="font-bold text-3xl text-foreground mb-2">
+                        Mes coordonnées
+                    </h2>
+                    <p class="text-muted-foreground text-lg">
+                        Plusieurs moyens de me contacter pour votre projet
+                    </p>
+                </header>
+                
                 <!-- Contact Info -->
 
                 <div
@@ -222,7 +277,7 @@ const locationInfo = {
                 <div class="max-w-4xl mx-auto">
                     <article class="border border-border/20 rounded-3xl bg-card/60 backdrop-blur-lg overflow-hidden">
                         <div class="p-8 pb-2">
-                            <h3 class="font-bold text-2xl text-foreground mb-4 flex items-center">
+                            <h3 class="font-bold text-xl text-foreground mb-4 flex items-center">
                                 <svg
                                     class="w-6 h-6 mr-3 text-primary flex-shrink-0"
                                     xmlns="http://www.w3.org/2000/svg"
