@@ -1,9 +1,7 @@
 ---
-import MobileMenuToggle from "@/components/mobile-menu-toggle.tsx";
 import LogoImg from "@/assets/images/logo.png";
+import MobileMenuToggle from "@/components/mobile-menu-toggle.tsx";
 import { Image } from "astro:assets";
-import { businessInfo } from "@/utils/helper";
-import { Calendar1Icon, PaperclipIcon } from "lucide-react";
 
 const currentPath = Astro.url.pathname;
 
@@ -23,6 +21,14 @@ const navItems = [
         description: "Découvrez mes services de développement web : création de sites vitrine, e-commerce, applications web sur-mesure, optimisation SEO et maintenance.",
         keywords: "services développement web, création site vitrine, application web sur-mesure"
     },
+
+    {
+        href: "/contact",
+        label: "Contact",
+        title: "Contact Développeur Web Freelance | Devis Gratuit & Prise de Rendez-vous",
+        description: "Contactez Yann Metier, développeur web freelance, pour discuter de votre projet digital. Devis gratuit, conseil personnalisé et accompagnement sur-mesure.",
+        keywords: "contact développeur web, devis gratuit site internet, développeur freelance"
+    },
     {
         href: "https://portfolio-2024-7z7.pages.dev",
         target: "_blank",
@@ -30,13 +36,6 @@ const navItems = [
         title: "Portfolio Projets Web | Exemples Sites Internet & Applications Créés",
         description: "Consultez mes réalisations en développement web : sites vitrine, boutiques e-commerce, applications métier et projets digitaux réussis.",
         keywords: "portfolio développeur web, projets sites internet, réalisations applications"
-    },
-    {
-        href: "/contact",
-        label: "Contact",
-        title: "Contact Développeur Web Freelance | Devis Gratuit & Prise de Rendez-vous",
-        description: "Contactez Yann Metier, développeur web freelance, pour discuter de votre projet digital. Devis gratuit, conseil personnalisé et accompagnement sur-mesure.",
-        keywords: "contact développeur web, devis gratuit site internet, développeur freelance"
     },
 ];
 
@@ -186,17 +185,27 @@ const websiteSchema = {
                                         title={item.title}
                                         target={item.target ? "_blank" : undefined}
                                         tabindex={0}
-                                        class={`text-foreground/80 hover:text-primary transition-all duration-300 font-medium text-base py-2 px-1  relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
-                                        aria-describedby={`desc-${item.href.slice(1) || 'home'}`}
+                                        class={`${item.target ? 'hover:opacity-80' : 'text-foreground/80 hover:text-primary'} transition-all duration-300 font-medium text-base py-2 px-1  relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
+                                        style={item.target ? 'color: #ff4676' : undefined}
+                                        aria-describedby={`desc-${item.href.slice(1) || 'Accueil'}`}
                                         aria-current={isActive ? 'page' : undefined}
                                         itemprop="url"
                                     >
-                                        <span itemprop="name">{item.label}</span>
-                                        <span class={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 rounded-full ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} aria-hidden="true"></span>
+                                        <span itemprop="name" class="inline-flex items-center gap-1">
+                                            {item.label}
+                                            {item.target && (
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                                    <polyline points="15,3 21,3 21,9"/>
+                                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                                </svg>
+                                            )}
+                                        </span>
+                                        <span class={`absolute -bottom-1 left-0 h-0.5 ${item.target ? '' : 'bg-primary'} transition-all duration-300 rounded-full ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} style={item.target ? 'background-color: #ff4676' : undefined} aria-hidden="true"></span>
                                     </a>
                                     <!-- Descriptions cachées pour l'accessibilité -->
                                     <span
-                                        id={`desc-${item.href.slice(1) || 'home'}`}
+                                        id={`desc-${item.href.slice(1) || 'Accueil'}`}
                                         class="sr-only"
                                         role="tooltip"
                                     >
@@ -234,7 +243,8 @@ const websiteSchema = {
                             href: item.href,
                             label: item.label,
                             title: item.title,
-                            description: item.description
+                            description: item.description,
+                            target: item.target
                         }))}
                     />
                 </div>

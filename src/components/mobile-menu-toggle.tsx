@@ -4,6 +4,7 @@ import { Menu, X, Phone, Calendar1Icon, PenIcon } from "lucide-react"
 interface NavItem {
   href: string
   label: string
+  target?: string
 }
 
 interface MobileMenuToggleProps {
@@ -68,12 +69,21 @@ export default function MobileMenuToggle({ navItems }: MobileMenuToggleProps) {
               <a
                 key={item.href}
                 href={item.href}
+                target={item.target}
                 role="menuitem"
-                className="block px-6 py-4 text-foreground hover:text-primary hover:bg-muted/50 rounded-md transition-all duration-300 text-base font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+                className={`block px-6 py-4 ${item.target ? 'hover:opacity-80' : 'text-foreground hover:text-primary'} hover:bg-muted/50 rounded-md transition-all duration-300 text-base font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 flex items-center gap-2`}
+                style={item.target ? { color: '#ff4676' } : undefined}
                 onClick={() => setIsOpen(false)}
                 tabIndex={isOpen ? 0 : -1}
               >
                 {item.label}
+                {item.target && (
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15,3 21,3 21,9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                )}
               </a>
             ))}
             <div className="px-4 py-2">
@@ -82,7 +92,7 @@ export default function MobileMenuToggle({ navItems }: MobileMenuToggleProps) {
                 className="flex items-center justify-center w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg py-4 font-medium transition-background duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 onClick={() => setIsOpen(false)}
               >
-                <PenIcon className="w-4 h-4 mr-2" />
+                <PenIcon className="w-4 h-4 mr-3" />
                 Obtenir un devis
               </a>
             </div>
