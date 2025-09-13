@@ -1,9 +1,9 @@
 export const businessInfo = {
-  name: "Charlotte Drouilly",
-  profession: "Kinésiologue",
-  location: "Genève, Suisse",
+  name: "Yann Metier",
+  profession: "Expert prix sites internet",
+  location: "Toulouse, France",
   description:
-    "Kinésiologue expérimentée spécialisée dans l'accompagnement vers l'harmonie intérieure",
+    "Expert en estimation de prix et création de sites internet avec tarification transparente et devis personnalisés",
 };
 
 export const navItems = [
