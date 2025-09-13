@@ -101,9 +101,9 @@ const locationInfo = {
         }
     </script>
     <!-- Hero Section -->
-    <section class="pt-20" aria-labelledby="contact-hero-heading" role="banner">
+    <section class="pt-20" aria-labelledby="contact-hero-heading">
         <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
-            <header class="text-center mb-12">
+            <header class="text-center mb-12" role="banner">
                 <h1
                     id="contact-hero-heading"
                     class="font-bold text-4xl md:text-5xl text-foreground mb-6 leading-tight"
@@ -129,7 +129,7 @@ const locationInfo = {
             <header class="text-center mb-8">
                 <h2
                     id="contact-info-heading"
-                    class="font-bold text-2xl text-foreground mb-2"
+                    class="font-bold text-3xl text-foreground mb-2"
                 >
                     Mes coordonnées
                 </h2>
@@ -139,14 +139,10 @@ const locationInfo = {
             </header>
 
             <!-- Contact Info -->
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8" role="list">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {
                     contactInfo.map((info, index) => (
-                        <article
-                            class="border border-border/20 rounded-3xl bg-card/60 backdrop-blur-lg"
-                            role="listitem"
-                        >
+                        <article class="border border-border/20 rounded-3xl bg-card/60 backdrop-blur-lg">
                             <div class="p-6">
                                 <div class="flex items-start space-x-4">
                                     <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0 organic-shape">
@@ -226,7 +222,7 @@ const locationInfo = {
                                         )}
                                     </div>
                                     <div>
-                                        <h3 class="font-medium text-foreground mb-1 flex items-center">
+                                        <h3 class="font-semibold text-lg text-foreground mb-2">
                                             {info.title}
                                         </h3>
                                         {info.url ? (
@@ -234,6 +230,7 @@ const locationInfo = {
                                                 href={info.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
+                                                aria-label={`Visiter ${info.title} - ${info.value} (ouvre dans un nouvel onglet)`}
                                                 class="text-primary hover:text-primary/80 transition-colors underline"
                                             >
                                                 {info.value}
@@ -258,7 +255,7 @@ const locationInfo = {
 
     <!-- Location Section -->
     <section
-        class="py-10 mt-8 bg-card/60 rounded-2xl mb-16"
+        class="py-10 mt-8 bg-card/60 rounded-2xl mb-20"
         aria-labelledby="location-heading"
     >
         <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">

@@ -156,12 +156,8 @@ const features = [
         }
     </script>
     <!-- Hero Section -->
-    <section
-        class="pt-20"
-        aria-labelledby="services-hero-heading"
-        role="banner"
-    >
-        <header class="text-center mb-12">
+    <section class="pt-20" aria-labelledby="services-hero-heading">
+        <header class="text-center mb-12" role="banner">
             <h1
                 id="services-hero-heading"
                 class="font-bold text-4xl md:text-5xl text-foreground mb-6 leading-tight"
@@ -199,12 +195,14 @@ const features = [
 
             <div class="p-8 space-y-6">
                 <!-- Features -->
-                <fieldset class="space-y-4">
-                    <legend
-                        class="text-sm font-medium text-foreground inline-block"
-                    >
+                <section>
+                    <h3 class="text-lg font-semibold text-foreground mb-4">
                         Fonctionnalités souhaitées
-                    </legend>
+                    </h3>
+                    <fieldset class="space-y-4">
+                        <legend class="sr-only">
+                            Sélectionnez les fonctionnalités pour votre site
+                        </legend>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {
                             features.map((feature) => (
@@ -249,29 +247,42 @@ const features = [
                             ))
                         }
                     </div>
-                </fieldset>
+                    </fieldset>
+                </section>
 
                 <!-- Price Display -->
-                <div id="price-display" class="p-4 bg-white rounded-lg">
+                <section>
+                    <h3 class="text-lg font-semibold text-foreground mb-4">
+                        Estimation du coût
+                    </h3>
+                <div id="price-display" class="p-4 bg-white rounded-lg" aria-live="polite" aria-atomic="true">
                     <p
                         class="font-semibold text-foreground text-lg text-center"
                     >
                         Estimation totale :
                     </p>
 
-                    <p class="text-sm text-muted-foreground mt-1 text-center">
-                        Prix indicatif & devis personnalisé gratuit
+                    <p class="text-xs text-muted-foreground mt-1 text-center">
+                        Prix de base + options sélectionnées
                     </p>
                     <p
                         class="text-3xl font-bold text-primary text-center mt-3"
                         id="total-price"
                     >
-                        0€
+                        700€
+                    </p>
+                    <p class="text-xs text-orange-600 font-medium text-center mt-2">
+                        Estimation approximative - Le prix peut être plus cher selon l'ampleur du projet
                     </p>
                 </div>
+                </section>
 
                 <!-- Contact Form -->
-                <form class="space-y-4" id="quote-form">
+                <section>
+                    <h3 class="text-lg font-semibold text-foreground mb-4">
+                        Demander un devis personnalisé
+                    </h3>
+                <form class="space-y-4" id="quote-form" novalidate>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="space-y-2">
                             <label
@@ -285,8 +296,10 @@ const features = [
                                 name="name"
                                 required
                                 placeholder="Votre nom"
+                                aria-describedby="name-error"
                                 class="w-full px-4 py-3 border border-border/20 rounded-xl bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                             />
+                            <div id="name-error" class="text-red-600 text-xs mt-1 hidden" role="alert"></div>
                         </div>
                         <div class="space-y-2">
                             <label
@@ -300,8 +313,10 @@ const features = [
                                 name="email"
                                 required
                                 placeholder="votre@email.com"
+                                aria-describedby="email-error"
                                 class="w-full px-4 py-3 border border-border/20 rounded-xl bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                             />
+                            <div id="email-error" class="text-red-600 text-xs mt-1 hidden" role="alert"></div>
                         </div>
                     </div>
 
@@ -323,6 +338,7 @@ const features = [
                     <button
                         type="submit"
                         id="submit-btn"
+                        aria-describedby="submit-help"
                         class="w-full mt-6 inline-flex items-center justify-center px-6 py-4 bg-primary text-primary-foreground rounded-full font-medium text-lg hover:bg-primary/90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled
                     >
@@ -345,18 +361,17 @@ const features = [
                     <div
                         class="text-xs text-muted-foreground text-center space-y-2"
                     >
-                        <p>
+                        <p id="submit-help" class="font-semibold">
+                            Veuillez au moins remplir votre nom et email pour être contacté.
+                        </p>
+                        <p class="italic">
                             En soumettant ce formulaire, vous acceptez d'être
                             contacté par email pour recevoir votre devis
                             personnalisé.
                         </p>
-                        <p class="text-orange-600 font-medium">
-                            Le devis représente une estimation moyenne. Il se
-                            peut que certains prix diffèrent selon l'ampleur de
-                            votre projet.
-                        </p>
                     </div>
                 </form>
+                </section>
             </div>
         </article>
     </section>
@@ -390,8 +405,12 @@ const features = [
 
             const totalPrice = basePrice + featuresPrice;
 
-            // Always show price display
+            // Update price display with announcement for screen readers
             totalPriceElement.textContent = totalPrice.toLocaleString() + "€";
+
+            // Announce price change to screen readers
+            const announcement = `Prix mis à jour: ${totalPrice.toLocaleString()} euros`;
+            totalPriceElement.setAttribute('aria-label', announcement);
 
             updateSubmitButton();
         }
@@ -400,11 +419,29 @@ const features = [
         function updateSubmitButton() {
             const hasName = nameInput.value.trim() !== "";
             const hasEmail = emailInput.value.trim() !== "";
+            const submitHelp = document.getElementById("submit-help");
 
             if (hasName && hasEmail) {
                 submitBtn.disabled = false;
+                submitHelp.textContent = "Formulaire prêt à être envoyé";
             } else {
                 submitBtn.disabled = true;
+                submitHelp.textContent = "Veuillez remplir votre nom et email pour être contacté";
+            }
+        }
+
+        // Form validation
+        function validateField(field, errorElement, errorMessage) {
+            if (!field.value.trim()) {
+                errorElement.textContent = errorMessage;
+                errorElement.classList.remove("hidden");
+                field.setAttribute("aria-invalid", "true");
+                return false;
+            } else {
+                errorElement.textContent = "";
+                errorElement.classList.add("hidden");
+                field.removeAttribute("aria-invalid");
+                return true;
             }
         }
 
@@ -416,10 +453,40 @@ const features = [
         nameInput.addEventListener("input", updateSubmitButton);
         emailInput.addEventListener("input", updateSubmitButton);
 
+        // Add validation on blur
+        nameInput.addEventListener("blur", function() {
+            const nameError = document.getElementById("name-error");
+            validateField(nameInput, nameError, "Le nom est requis");
+        });
+
+        emailInput.addEventListener("blur", function() {
+            const emailError = document.getElementById("email-error");
+            const isValid = validateField(emailInput, emailError, "L'email est requis");
+            if (isValid && emailInput.value.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailError.textContent = "Format d'email invalide";
+                    emailError.classList.remove("hidden");
+                    emailInput.setAttribute("aria-invalid", "true");
+                }
+            }
+        });
+
         // Handle form submission
         if (form) {
             form.addEventListener("submit", function (e) {
                 e.preventDefault();
+
+                // Validate all fields
+                const nameError = document.getElementById("name-error");
+                const emailError = document.getElementById("email-error");
+
+                const isNameValid = validateField(nameInput, nameError, "Le nom est requis");
+                const isEmailValid = validateField(emailInput, emailError, "L'email est requis");
+
+                if (!isNameValid || !isEmailValid) {
+                    return;
+                }
 
                 const formData = new FormData(form);
                 const selectedFeatures = Array.from(
