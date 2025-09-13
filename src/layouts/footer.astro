@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { Phone, Mail, MapPin, Leaf } from "lucide-react";
 import LogoImg from "@/assets/images/logo.png";
+import { navItems } from "@/utils/helper";
 
 // Business information with structured data
 const businessInfo = {
@@ -23,27 +24,6 @@ const businessInfo = {
         facebook: "https://facebook.com/yann.metier",
     },
 };
-
-const navItems = [
-    { href: "/", label: "Accueil", title: "Retour à la page d'accueil" },
-    {
-        href: "/services",
-        label: "Services",
-        title: "Consulter les devis personnalisés",
-    },
-
-    {
-        href: "/contact",
-        label: "Contact",
-        title: "Contactez-moi",
-    },
-    {
-        href: "https://portfolio-2024-7z7.pages.dev",
-        target: "_blank",
-        label: "Portfolio",
-        title: "Présentation des projets réalisés",
-    },
-];
 
 // JSON-LD structured data for enhanced SEO
 const jsonLd = {
@@ -89,7 +69,7 @@ const jsonLd = {
                 itemtype="https://schema.org/Person"
             >
                 <header>
-                    <h2
+                    <h3
                         id="about-heading"
                         class="flex items-center md:justify-center gap-3 font-bold text-2xl text-foreground mb-10"
                         itemprop="name"
@@ -102,7 +82,7 @@ const jsonLd = {
                             loading="lazy"
                         />
                         {businessInfo.name}
-                    </h2>
+                    </h3>
                 </header>
                 <p
                     class="text-muted-foreground text-lg leading-relaxed mb-2 md:text-center"
@@ -121,19 +101,19 @@ const jsonLd = {
                 role="navigation"
             >
                 <header>
-                    <h2
+                    <h3
                         id="footer-nav-heading"
                         class="font-bold text-2xl text-foreground mb-10 md:text-center"
                     >
                         Navigation
-                    </h2>
+                    </h3>
                 </header>
                 <ul
                     class="space-y-6 md:flex md:flex-col md:items-center"
                     role="list"
                 >
                     {
-                        navItems.map((item, index) => (
+                        navItems.map((item) => (
                             <li>
                                 <a
                                     href={item.href}
@@ -141,7 +121,6 @@ const jsonLd = {
                                     target={item.target ? "_blank" : undefined}
                                     class={`block ${item.target ? 'hover:opacity-80' : 'text-muted-foreground hover:text-primary'} transition-all duration-300 text-lg hover:translate-x-3 py-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50 flex items-center gap-2`}
                                     style={item.target ? 'color: #ff4676' : undefined}
-                                    aria-describedby={`nav-desc-${index}`}
                                 >
                                     {item.label}
                                     {item.target && (
@@ -151,12 +130,6 @@ const jsonLd = {
                                             <line x1="10" y1="14" x2="21" y2="3"/>
                                         </svg>
                                     )}
-                                    <span
-                                        id={`nav-desc-${index}`}
-                                        class="sr-only"
-                                    >
-                                        {item.title}
-                                    </span>
                                 </a>
                             </li>
                         ))
@@ -167,12 +140,12 @@ const jsonLd = {
             <!-- Contact Information Section -->
             <section class="space-y-10" aria-labelledby="contact-heading">
                 <header>
-                    <h2
+                    <h3
                         id="contact-heading"
                         class="font-bold text-2xl text-foreground mb-10 md:text-center"
                     >
                         Contact
-                    </h2>
+                    </h3>
                 </header>
                 <address
                     class="not-italic space-y-8"
@@ -194,7 +167,6 @@ const jsonLd = {
                         <a
                             href={`tel:${businessInfo.phone}`}
                             class="hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
-                            aria-label={`Appeler ${businessInfo.name} au ${businessInfo.phone}`}
                             itemprop="telephone"
                             rel="nofollow"
                         >
@@ -217,7 +189,6 @@ const jsonLd = {
                         <a
                             href={`mailto:${businessInfo.email}`}
                             class="hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
-                            aria-label={`Envoyer un email à ${businessInfo.name}`}
                             itemprop="email"
                             rel="nofollow"
                         >
@@ -264,12 +235,12 @@ const jsonLd = {
             <!-- Social Media Section -->
             <section class="space-y-10" aria-labelledby="social-heading">
                 <header>
-                    <h2
+                    <h3
                         id="social-heading"
                         class="font-bold text-2xl text-foreground mb-10 md:text-center"
                     >
                         Réseaux sociaux
-                    </h2>
+                    </h3>
                 </header>
                 <div class="flex space-x-6 justify-start md:justify-center">
                     <a
@@ -312,17 +283,15 @@ const jsonLd = {
             </section>
         </div>
 
-        <hr class="mt-4" />
-
         <!-- Copyright Section -->
         <section
-            class="border-t border-border/20 pt-8 text-center"
+            class="border-t border-border/20 pt-8 mt-12 text-center"
             aria-label="Informations de copyright"
         >
             <p
                 class="text-muted-foreground text-lg"
                 itemscope
-                itemtype="https://schema.org/Organization"
+                itemtype="https://schema.org/Person"
             >
                 © <time datetime="2025" itemprop="copyrightYear">2025</time>
                 <span itemprop="name">{businessInfo.name}</span> -

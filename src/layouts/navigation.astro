@@ -2,44 +2,10 @@
 import LogoImg from "@/assets/images/logo.png";
 import MobileMenuToggle from "@/components/mobile-menu-toggle.tsx";
 import { Image } from "astro:assets";
+import { navItems } from "@/utils/helper";
 
 const currentPath = Astro.url.pathname;
 
-// SEO-optimized navigation items with enhanced metadata
-const navItems = [
-    {
-        href: "/",
-        label: "Accueil",
-        title: "Développeur Web Freelance Expert | Yann Metier - Créateur de Sites Modernes",
-        description: "Page d'accueil - Développeur web freelance spécialisé en React, Next.js et solutions digitales sur-mesure. Création de sites web professionnels et optimisés SEO.",
-        keywords: "développeur web freelance, création site internet, React Next.js développeur"
-    },
-    {
-        href: "/services",
-        label: "Services",
-        title: "Services Développement Web | Création Sites Internet & Applications",
-        description: "Découvrez mes services de développement web : création de sites vitrine, e-commerce, applications web sur-mesure, optimisation SEO et maintenance.",
-        keywords: "services développement web, création site vitrine, application web sur-mesure"
-    },
-
-    {
-        href: "/contact",
-        label: "Contact",
-        title: "Contact Développeur Web Freelance | Devis Gratuit & Prise de Rendez-vous",
-        description: "Contactez Yann Metier, développeur web freelance, pour discuter de votre projet digital. Devis gratuit, conseil personnalisé et accompagnement sur-mesure.",
-        keywords: "contact développeur web, devis gratuit site internet, développeur freelance"
-    },
-    {
-        href: "https://portfolio-2024-7z7.pages.dev",
-        target: "_blank",
-        label: "Portfolio",
-        title: "Portfolio Projets Web | Exemples Sites Internet & Applications Créés",
-        description: "Consultez mes réalisations en développement web : sites vitrine, boutiques e-commerce, applications métier et projets digitaux réussis.",
-        keywords: "portfolio développeur web, projets sites internet, réalisations applications"
-    },
-];
-
-const currentNavItem = navItems.find(item => item.href === currentPath) || navItems[0];
 
 // JSON-LD structured data for organization and website
 const organizationSchema = {
@@ -124,12 +90,7 @@ const websiteSchema = {
     Aller au contenu principal
 </a>
 
-<header role="banner" itemscope itemtype="https://schema.org/Organization" class="sticky top-0 z-50">
-    <!-- SEO Meta Enhancement -->
-    <meta name="description" content={currentNavItem.description} />
-    <meta name="keywords" content={currentNavItem.keywords} />
-    <link rel="canonical" href={`https://ano-dev.pro${currentPath === '/' ? '' : currentPath}`} />
-
+<header role="banner" class="sticky top-0 z-50">
     <nav
         class="bg-card/70 backdrop-blur-lg border-b border-border/20"
         role="navigation"
@@ -141,13 +102,11 @@ const websiteSchema = {
             <div class="flex justify-between items-center h-20">
 
                 <!-- Logo et informations business -->
-                <div class="flex items-center" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+                <div class="flex items-center">
                     <a
                         href="/"
                         class="flex items-center space-x-3"
-                        title="Yann Metier - Développeur Web Freelance Expert React Next.js | Retour à l'accueil"
-                        aria-label="Yann Metier, développeur web freelance spécialisé React et Next.js - Retour à la page d'accueil"
-                        itemprop="url"
+                        title="Yann Metier, développeur web freelance spécialisé dans la création digitale"
                     >
                         <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary organic-shape flex items-center justify-center shadow-lg">
                             <Image
@@ -156,22 +115,21 @@ const websiteSchema = {
                                 height={32}
                                 alt="Logo Yann Metier Développeur Web - Symbole professionnel représentant l'expertise en développement"
                                 loading="eager"
-                                itemprop="logo"
                             />
                         </div>
-                        <div class="flex flex-col">
-                            <span class=" font-bold text-xl text-foreground tracking-wide" itemprop="name">
+                        <span class="flex flex-col">
+                            <span class=" font-bold text-xl text-foreground tracking-wide">
                                 Yann Metier
                             </span>
-                            <span class="text-xs text-muted-foreground font-medium" itemprop="description">
+                            <span class="text-xs text-muted-foreground font-medium">
                                 Développeur web freelance
                             </span>
-                        </div>
+                        </span>
                     </a>
                 </div>
 
                 <!-- Navigation principale desktop -->
-                <nav class="hidden md:flex items-center" role="navigation" aria-label="Menu de navigation principal">
+                <div class="hidden md:flex items-center">
                     <ul class="flex items-center space-x-8 list-none m-0 p-0">
                         {navItems.map((item) => {
                             const isActive = currentPath === item.href;
@@ -184,14 +142,12 @@ const websiteSchema = {
                                         href={item.href}
                                         title={item.title}
                                         target={item.target ? "_blank" : undefined}
-                                        tabindex={0}
+                                        rel={item.target ? "noopener noreferrer" : undefined}
                                         class={`${item.target ? 'hover:opacity-80' : 'text-foreground/80 hover:text-primary'} transition-all duration-300 font-medium text-base py-2 px-1  relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
                                         style={item.target ? 'color: #ff4676' : undefined}
-                                        aria-describedby={`desc-${item.href.slice(1) || 'Accueil'}`}
                                         aria-current={isActive ? 'page' : undefined}
-                                        itemprop="url"
                                     >
-                                        <span itemprop="name" class="inline-flex items-center gap-1">
+                                        <span class="inline-flex items-center gap-1">
                                             {item.label}
                                             {item.target && (
                                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -203,14 +159,6 @@ const websiteSchema = {
                                         </span>
                                         <span class={`absolute -bottom-1 left-0 h-0.5 ${item.target ? '' : 'bg-primary'} transition-all duration-300 rounded-full ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`} style={item.target ? 'background-color: #ff4676' : undefined} aria-hidden="true"></span>
                                     </a>
-                                    <!-- Descriptions cachées pour l'accessibilité -->
-                                    <span
-                                        id={`desc-${item.href.slice(1) || 'Accueil'}`}
-                                        class="sr-only"
-                                        role="tooltip"
-                                    >
-                                        {item.description}
-                                    </span>
                                 </li>
                             )
                         })}
@@ -221,19 +169,15 @@ const websiteSchema = {
                                 href="/services"
                                 class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-200  hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                                 title="Obtenir un devis gratuit pour votre projet web - Développeur freelance React Next.js"
-                                aria-label="Demander un devis personnalisé gratuit pour votre projet de développement web"
-                                itemprop="potentialAction"
-                                itemscope
-                                itemtype="https://schema.org/ContactAction"
                             >
                                 <svg width="20" height="20" class="mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
                                 </svg>
-                                <span itemprop="name">Obtenir un devis</span>
+                                <span>Obtenir un devis</span>
                             </a>
                         </li>
                     </ul>
-                </nav>
+                </div>
 
                 <!-- Menu mobile avec amélioration SEO -->
                 <div class="md:hidden relative" role="navigation" aria-label="Menu de navigation mobile">
@@ -243,7 +187,6 @@ const websiteSchema = {
                             href: item.href,
                             label: item.label,
                             title: item.title,
-                            description: item.description,
                             target: item.target
                         }))}
                     />

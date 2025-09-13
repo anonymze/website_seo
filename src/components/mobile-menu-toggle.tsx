@@ -4,6 +4,7 @@ import { Menu, X, Phone, Calendar1Icon, PenIcon } from "lucide-react"
 interface NavItem {
   href: string
   label: string
+  title: string
   target?: string
 }
 
