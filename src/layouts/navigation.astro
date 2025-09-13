@@ -185,7 +185,7 @@ const websiteSchema = {
                                         title={item.title}
                                         target={item.target ? "_blank" : undefined}
                                         tabindex={0}
-                                        class={`${item.target ? 'hover:opacity-80' : 'text-foreground/80 hover:text-primary'} transition-all duration-300 font-medium text-base py-2 px-1  relative group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
+                                        class={`${item.target ? 'hover:opacity-80' : 'text-foreground/80 hover:text-primary'} transition-all duration-300 font-medium text-base py-2 px-1  relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
                                         style={item.target ? 'color: #ff4676' : undefined}
                                         aria-describedby={`desc-${item.href.slice(1) || 'Accueil'}`}
                                         aria-current={isActive ? 'page' : undefined}
@@ -219,7 +219,7 @@ const websiteSchema = {
                         <li>
                             <a
                                 href="/services"
-                                class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-200  hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                                class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-200  hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                                 title="Obtenir un devis gratuit pour votre projet web - Développeur freelance React Next.js"
                                 aria-label="Demander un devis personnalisé gratuit pour votre projet de développement web"
                                 itemprop="potentialAction"

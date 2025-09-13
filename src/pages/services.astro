@@ -86,74 +86,74 @@ const features = [
 >
     <!-- Schema.org Service données structurées -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "@id": "https://creation-site-web.fr/services",
-        "name": "Calculateur Prix Site Internet",
-        "description": "Outil en ligne pour estimer le prix de création de votre site internet. Devis personnalisé et gratuit pour tous projets web.",
-        "url": "https://creation-site-web.fr/services",
-        "provider": {
-            "@type": "Person",
-            "name": "Yann Metier",
-            "jobTitle": "Développeur Web Freelance"
-        },
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "Site Responsive Mobile",
-                "price": "0",
-                "priceCurrency": "EUR",
-                "description": "Site adapté mobile et tablette - Inclus"
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "https://creation-site-web.fr/services",
+            "name": "Calculateur Prix Site Internet",
+            "description": "Outil en ligne pour estimer le prix de création de votre site internet. Devis personnalisé et gratuit pour tous projets web.",
+            "url": "https://creation-site-web.fr/services",
+            "provider": {
+                "@type": "Person",
+                "name": "Yann Metier",
+                "jobTitle": "Développeur Web Freelance"
             },
-            {
-                "@type": "Offer",
-                "name": "Référencement Google",
-                "price": "0",
-                "priceCurrency": "EUR",
-                "description": "Référencement Google de base - Inclus"
-            },
-            {
-                "@type": "Offer",
-                "name": "Design IA Personnalisé",
-                "price": "0",
-                "priceCurrency": "EUR",
-                "description": "2 propositions de design générées par IA - Inclus"
-            },
-            {
-                "@type": "Offer",
-                "name": "Statistiques Détaillées",
-                "price": "50",
-                "priceCurrency": "EUR",
-                "description": "Analytics et statistiques de visite avancées"
-            },
-            {
-                "@type": "Offer",
-                "name": "Newsletter Automatique",
-                "price": "100",
-                "priceCurrency": "EUR",
-                "description": "Système d'envoi emails + 8€/mois"
-            },
-            {
-                "@type": "Offer",
-                "name": "Site Multilingue",
-                "price": "200",
-                "priceCurrency": "EUR",
-                "description": "Site disponible en plusieurs langues"
-            },
-            {
-                "@type": "Offer",
-                "name": "Paiement Sécurisé",
-                "price": "600",
-                "priceCurrency": "EUR",
-                "description": "Intégration paiement en ligne sécurisé"
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "name": "Site Responsive Mobile",
+                    "price": "0",
+                    "priceCurrency": "EUR",
+                    "description": "Site adapté mobile et tablette - Inclus"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Référencement Google",
+                    "price": "0",
+                    "priceCurrency": "EUR",
+                    "description": "Référencement Google de base - Inclus"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Design IA Personnalisé",
+                    "price": "0",
+                    "priceCurrency": "EUR",
+                    "description": "2 propositions de design générées par IA - Inclus"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Statistiques Détaillées",
+                    "price": "50",
+                    "priceCurrency": "EUR",
+                    "description": "Analytics et statistiques de visite avancées"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Newsletter Automatique",
+                    "price": "100",
+                    "priceCurrency": "EUR",
+                    "description": "Système d'envoi emails + 8€/mois"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Site Multilingue",
+                    "price": "200",
+                    "priceCurrency": "EUR",
+                    "description": "Site disponible en plusieurs langues"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Paiement Sécurisé",
+                    "price": "600",
+                    "priceCurrency": "EUR",
+                    "description": "Intégration paiement en ligne sécurisé"
+                }
+            ],
+            "areaServed": {
+                "@type": "Country",
+                "name": "France"
             }
-        ],
-        "areaServed": {
-            "@type": "Country",
-            "name": "France"
         }
-    }
     </script>
     <!-- Hero Section -->
     <section
@@ -184,8 +184,11 @@ const features = [
             class="border border-border/20 rounded-3xl bg-card/60 backdrop-blur-lg overflow-hidden"
         >
             <header class="p-8 pb-6 border-b border-border/20">
-                <h2 id="quote-configurator-heading" class="text-2xl font-bold text-foreground mb-2 flex items-center gap-4">
-                     <CalculatorIcon className="w-8 h-8 text-primary" />
+                <h2
+                    id="quote-configurator-heading"
+                    class="text-2xl font-bold text-foreground mb-2 flex items-center gap-4"
+                >
+                    <CalculatorIcon className="w-8 h-8 text-primary" />
                     Configurateur de devis
                 </h2>
                 <p class="text-muted-foreground">
@@ -197,7 +200,9 @@ const features = [
             <div class="p-8 space-y-6">
                 <!-- Features -->
                 <fieldset class="space-y-4">
-                    <legend class="text-sm font-medium text-foreground inline-block">
+                    <legend
+                        class="text-sm font-medium text-foreground inline-block"
+                    >
                         Fonctionnalités souhaitées
                     </legend>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -247,18 +252,21 @@ const features = [
                 </fieldset>
 
                 <!-- Price Display -->
-                <div id="price-display" class="p-4 bg-muted rounded-lg">
-                    <div class="flex justify-between items-center">
-                        <span class="font-semibold text-foreground"
-                            >Estimation totale :</span
-                        >
-                        <span
-                            class="text-2xl font-bold text-primary"
-                            id="total-price">0€</span
-                        >
-                    </div>
-                    <p class="text-sm text-muted-foreground mt-1">
-                        Prix indicatif - Devis personnalisé gratuit
+                <div id="price-display" class="p-4 bg-white rounded-lg">
+                    <p
+                        class="font-semibold text-foreground text-lg text-center"
+                    >
+                        Estimation totale :
+                    </p>
+
+                    <p class="text-sm text-muted-foreground mt-1 text-center">
+                        Prix indicatif & devis personnalisé gratuit
+                    </p>
+                    <p
+                        class="text-3xl font-bold text-primary text-center mt-3"
+                        id="total-price"
+                    >
+                        0€
                     </p>
                 </div>
 
@@ -383,8 +391,7 @@ const features = [
             const totalPrice = basePrice + featuresPrice;
 
             // Always show price display
-            totalPriceElement.textContent =
-                totalPrice.toLocaleString() + "€";
+            totalPriceElement.textContent = totalPrice.toLocaleString() + "€";
 
             updateSubmitButton();
         }
