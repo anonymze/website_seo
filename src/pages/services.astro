@@ -226,11 +226,12 @@ const features = [
                                                         Inclus
                                                     </span>
                                                 )}
-                                                {!feature.included && feature.price > 0 && (
-                                                    <span class="inline-flex items-center px-3 py-1 text-sm text-foreground bg-gray-200 rounded-full">
-                                                        + {feature.price}€
-                                                    </span>
-                                                )}
+                                                {!feature.included &&
+                                                    feature.price > 0 && (
+                                                        <span class="inline-flex items-center px-3 py-1 text-sm text-foreground bg-gray-200 rounded-full">
+                                                            + {feature.price}€
+                                                        </span>
+                                                    )}
                                                 {feature.special && (
                                                     <span class="inline-flex items-center px-3 py-1 text-sm text-blue-700 bg-blue-100 rounded-full">
                                                         {feature.special}
@@ -420,7 +421,8 @@ const features = [
                             class="text-xs text-muted-foreground text-center space-y-2"
                         >
                             <p id="submit-help" class="font-semibold">
-                                Veuillez remplir votre nom et email pour être contacté
+                                Veuillez remplir votre nom et email pour être
+                                contacté
                             </p>
                             <p class="italic">
                                 En soumettant ce formulaire, vous acceptez
@@ -615,11 +617,19 @@ const features = [
                 try {
                     // Simulate form submission delay
                     if (window.localStorage.getItem("devis") == "1") {
+                        await new Promise((resolve) =>
+                            setTimeout(resolve, 1000),
+                        );
                         showSuccessState();
                     } else {
                         await new Promise((resolve) =>
-                            setTimeout(resolve, 1500),
+                            setTimeout(resolve, 500),
                         );
+
+                        await fetch("https://example.com/api/submit", {
+                            method: "POST",
+                            body: formData,
+                        });
 
                         // Here you would normally send the data to your backend
                         console.log(
