@@ -42,7 +42,7 @@ const features = [
         label: "Maintenance et mises à jour",
         price: 0,
         special: "1ère année offerte",
-        subscription: "300€ / an",
+        subscription: "150€ / an",
     },
     {
         id: "analytics",
@@ -73,7 +73,7 @@ const features = [
         id: "pro-design",
         label: "Design du site sur mesure réalisé par un professionnel",
         price: 1000,
-        special: "Entre 1000€ et 5000€ selon complexité projet",
+        special: "À partir de 1000€ et dépendant de la complexité du projet",
     },
 ];
 ---
@@ -203,50 +203,50 @@ const features = [
                         <legend class="sr-only">
                             Sélectionnez les fonctionnalités pour votre site
                         </legend>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {
-                            features.map((feature) => (
-                                <label class="flex items-center space-x-2 p-3 border border-border/20 rounded-xl hover:bg-muted/50 transition-colors cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        name="features"
-                                        value={feature.id}
-                                        data-price={feature.price}
-                                        checked={feature.included}
-                                        disabled={feature.included}
-                                        class="w-4 h-4 text-primary border-border focus:ring-primary focus:ring-2 disabled:opacity-50"
-                                    />
-                                    <div class="text-sm flex-1">
-                                        <span class="text-foreground">
-                                            {feature.label}
-                                        </span>
-                                        <div class="ml-1">
-                                            <div>
-                                                {feature.included ? (
-                                                    <span class="text-primary">
-                                                        (inclus)
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {
+                                features.map((feature) => (
+                                    <label class="flex items-start space-x-4 p-4 border border-border/20 rounded-xl hover:bg-muted/50 transition-colors cursor-pointer min-h-[100px]">
+                                        <input
+                                            type="checkbox"
+                                            name="features"
+                                            value={feature.id}
+                                            data-price={feature.price}
+                                            checked={feature.included}
+                                            disabled={feature.included}
+                                            class="w-5 h-5 mt-1 text-primary border-border focus:ring-primary focus:ring-2 disabled:opacity-50"
+                                        />
+                                        <div class="flex-1 space-y-2">
+                                            <div class="text-base font-medium text-foreground leading-relaxed">
+                                                {feature.label}
+                                            </div>
+                                            <div class="flex flex-wrap gap-2">
+                                                {feature.included && (
+                                                    <span class="inline-flex items-center px-3 py-1 text-sm font-medium text-primary bg-primary/10 rounded-full">
+                                                        Inclus
                                                     </span>
-                                                ) : feature.special ? (
-                                                    <span class="text-muted-foreground">
-                                                        ({feature.special})
+                                                )}
+                                                {!feature.included && feature.price > 0 && (
+                                                    <span class="inline-flex items-center px-3 py-1 text-sm text-foreground bg-gray-200 rounded-full">
+                                                        + {feature.price}€
                                                     </span>
-                                                ) : (
-                                                    <span class="text-muted-foreground">
-                                                        +{feature.price}€
+                                                )}
+                                                {feature.special && (
+                                                    <span class="inline-flex items-center px-3 py-1 text-sm text-blue-700 bg-blue-100 rounded-full">
+                                                        {feature.special}
+                                                    </span>
+                                                )}
+                                                {feature.subscription && (
+                                                    <span class="inline-flex items-center px-3 py-1 text-sm font-medium text-orange-700 bg-orange-100 rounded-full">
+                                                        + {feature.subscription}
                                                     </span>
                                                 )}
                                             </div>
-                                            {feature.subscription && (
-                                                <div class="text-xs text-orange-600 mt-1">
-                                                    + {feature.subscription}
-                                                </div>
-                                            )}
                                         </div>
-                                    </div>
-                                </label>
-                            ))
-                        }
-                    </div>
+                                    </label>
+                                ))
+                            }
+                        </div>
                     </fieldset>
                 </section>
 
@@ -255,26 +255,36 @@ const features = [
                     <h3 class="text-lg font-semibold text-foreground mb-4">
                         Estimation du coût
                     </h3>
-                <div id="price-display" class="p-4 bg-white rounded-lg" aria-live="polite" aria-atomic="true">
-                    <p
-                        class="font-semibold text-foreground text-lg text-center"
+                    <div
+                        id="price-display"
+                        class="p-4 bg-white rounded-lg"
+                        aria-live="polite"
+                        aria-atomic="true"
                     >
-                        Estimation totale :
-                    </p>
+                        <p
+                            class="font-semibold text-foreground text-lg text-center"
+                        >
+                            Estimation totale :
+                        </p>
 
-                    <p class="text-xs text-muted-foreground mt-1 text-center">
-                        Prix de base + options sélectionnées
-                    </p>
-                    <p
-                        class="text-3xl font-bold text-primary text-center mt-3"
-                        id="total-price"
-                    >
-                        700€
-                    </p>
-                    <p class="text-xs text-orange-600 font-medium text-center mt-2">
-                        Estimation approximative - Le prix peut être plus cher selon l'ampleur du projet
-                    </p>
-                </div>
+                        <p
+                            class="text-xs text-muted-foreground mt-1 text-center"
+                        >
+                            Prix de base + options sélectionnées
+                        </p>
+                        <p
+                            class="text-3xl font-bold text-primary text-center mt-3"
+                            id="total-price"
+                        >
+                            700€
+                        </p>
+                        <p
+                            class="text-xs text-orange-600 font-medium text-center mt-2"
+                        >
+                            Estimation approximative - Le prix peut être plus
+                            cher selon l'ampleur du projet
+                        </p>
+                    </div>
                 </section>
 
                 <!-- Contact Form -->
@@ -282,95 +292,143 @@ const features = [
                     <h3 class="text-lg font-semibold text-foreground mb-4">
                         Demander un devis personnalisé
                     </h3>
-                <form class="space-y-4" id="quote-form">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <form class="space-y-4" id="quote-form">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label
+                                    for="name"
+                                    class="text-sm font-medium text-foreground inline-block"
+                                    >Nom complet *</label
+                                >
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    placeholder="Votre nom"
+                                    aria-describedby="name-error"
+                                    class="w-full px-4 py-3 border border-border/20 rounded-xl bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                />
+                                <div
+                                    id="name-error"
+                                    class="text-red-600 text-xs mt-1 hidden"
+                                    role="alert"
+                                >
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    for="email"
+                                    class="text-sm font-medium text-foreground inline-block"
+                                    >Email *</label
+                                >
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    placeholder="votre@email.com"
+                                    aria-describedby="email-error"
+                                    class="w-full px-4 py-3 border border-border/20 rounded-xl bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                />
+                                <div
+                                    id="email-error"
+                                    class="text-red-600 text-xs mt-1 hidden"
+                                    role="alert"
+                                >
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="space-y-2">
                             <label
-                                for="name"
+                                for="company"
                                 class="text-sm font-medium text-foreground inline-block"
-                                >Nom complet *</label
+                                >Entreprise (optionnel)</label
                             >
                             <input
                                 type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Votre nom"
-                                aria-describedby="name-error"
+                                id="company"
+                                name="company"
+                                placeholder="Nom de votre entreprise"
                                 class="w-full px-4 py-3 border border-border/20 rounded-xl bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                             />
-                            <div id="name-error" class="text-red-600 text-xs mt-1 hidden" role="alert"></div>
                         </div>
-                        <div class="space-y-2">
-                            <label
-                                for="email"
-                                class="text-sm font-medium text-foreground inline-block"
-                                >Email *</label
+
+                        <button
+                            type="submit"
+                            id="submit-btn"
+                            aria-describedby="submit-help"
+                            class="w-full mt-6 inline-flex items-center justify-center px-6 py-4 bg-primary text-primary-foreground rounded-xl font-medium text-lg hover:bg-primary/90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
+                            disabled
+                        >
+                            <span id="btn-text"
+                                >Être contacté pour recevoir un devis détaillé</span
                             >
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="votre@email.com"
-                                aria-describedby="email-error"
-                                class="w-full px-4 py-3 border border-border/20 rounded-xl bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                            />
-                            <div id="email-error" class="text-red-600 text-xs mt-1 hidden" role="alert"></div>
+                            <svg
+                                id="btn-arrow"
+                                class="ml-2 h-4 w-4 transition-transform duration-300"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                            <!-- Loading spinner (hidden by default) -->
+                            <svg
+                                id="btn-spinner"
+                                class="ml-2 h-4 w-4 animate-spin hidden"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle
+                                    class="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path
+                                    class="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                ></path>
+                            </svg>
+                            <!-- Success checkmark (hidden by default) -->
+                            <svg
+                                id="btn-success"
+                                class="ml-2 h-4 w-4 hidden"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M20 6L9 17l-5-5"></path>
+                            </svg>
+                        </button>
+
+                        <div
+                            class="text-xs text-muted-foreground text-center space-y-2"
+                        >
+                            <p id="submit-help" class="font-semibold">
+                                Veuillez remplir votre nom et email pour être contacté
+                            </p>
+                            <p class="italic">
+                                En soumettant ce formulaire, vous acceptez
+                                d'être contacté par email pour recevoir votre
+                                devis personnalisé.
+                            </p>
                         </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label
-                            for="company"
-                            class="text-sm font-medium text-foreground inline-block"
-                            >Entreprise (optionnel)</label
-                        >
-                        <input
-                            type="text"
-                            id="company"
-                            name="company"
-                            placeholder="Nom de votre entreprise"
-                            class="w-full px-4 py-3 border border-border/20 rounded-xl bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        id="submit-btn"
-                        aria-describedby="submit-help"
-                        class="w-full mt-6 inline-flex items-center justify-center px-6 py-4 bg-primary text-primary-foreground rounded-full font-medium text-lg hover:bg-primary/90 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                        disabled
-                    >
-                        Être contacté pour recevoir un devis détaillé
-                        <svg
-                            class="ml-2 h-4 w-4"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M5 12h14"></path>
-                            <path d="m12 5 7 7-7 7"></path>
-                        </svg>
-                    </button>
-
-                    <div
-                        class="text-xs text-muted-foreground text-center space-y-2"
-                    >
-                        <p id="submit-help" class="font-semibold">
-                            Veuillez au moins remplir votre nom et email pour être contacté.
-                        </p>
-                        <p class="italic">
-                            En soumettant ce formulaire, vous acceptez d'être
-                            contacté par email pour recevoir votre devis
-                            personnalisé.
-                        </p>
-                    </div>
-                </form>
+                    </form>
                 </section>
             </div>
         </article>
@@ -410,7 +468,7 @@ const features = [
 
             // Announce price change to screen readers
             const announcement = `Prix mis à jour: ${totalPrice.toLocaleString()} euros`;
-            totalPriceElement.setAttribute('aria-label', announcement);
+            totalPriceElement.setAttribute("aria-label", announcement);
 
             updateSubmitButton();
         }
@@ -426,7 +484,8 @@ const features = [
                 submitHelp.textContent = "Formulaire prêt à être envoyé";
             } else {
                 submitBtn.disabled = true;
-                submitHelp.textContent = "Veuillez remplir votre nom et email pour être contacté";
+                submitHelp.textContent =
+                    "Veuillez remplir votre nom et email pour être contacté";
             }
         }
 
@@ -454,14 +513,18 @@ const features = [
         emailInput.addEventListener("input", updateSubmitButton);
 
         // Add validation on blur
-        nameInput.addEventListener("blur", function() {
+        nameInput.addEventListener("blur", function () {
             const nameError = document.getElementById("name-error");
             validateField(nameInput, nameError, "Le nom est requis");
         });
 
-        emailInput.addEventListener("blur", function() {
+        emailInput.addEventListener("blur", function () {
             const emailError = document.getElementById("email-error");
-            const isValid = validateField(emailInput, emailError, "L'email est requis");
+            const isValid = validateField(
+                emailInput,
+                emailError,
+                "L'email est requis",
+            );
             if (isValid && emailInput.value.trim()) {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(emailInput.value)) {
@@ -472,21 +535,74 @@ const features = [
             }
         });
 
+        // Button animation functions
+        function showLoadingState() {
+            const btnText = document.getElementById("btn-text");
+            const btnArrow = document.getElementById("btn-arrow");
+            const btnSpinner = document.getElementById("btn-spinner");
+
+            btnText.textContent = "Envoi en cours...";
+            btnArrow.classList.add("hidden");
+            btnSpinner.classList.remove("hidden");
+            submitBtn.disabled = true;
+        }
+
+        function showSuccessState() {
+            const btnText = document.getElementById("btn-text");
+            const btnSpinner = document.getElementById("btn-spinner");
+            const btnSuccess = document.getElementById("btn-success");
+
+            btnText.textContent = "Demande de devis envoyé avec succès !";
+            btnSpinner.classList.add("hidden");
+            btnSuccess.classList.remove("hidden");
+            submitBtn.classList.remove("bg-primary");
+            submitBtn.classList.add("bg-green-700");
+            window.localStorage.setItem("devis", "1");
+        }
+
+        function resetButtonState() {
+            const btnText = document.getElementById("btn-text");
+            const btnArrow = document.getElementById("btn-arrow");
+            const btnSpinner = document.getElementById("btn-spinner");
+            const btnSuccess = document.getElementById("btn-success");
+
+            btnText.textContent =
+                "Être contacté pour recevoir un devis détaillé";
+            btnArrow.classList.remove("hidden");
+            btnSpinner.classList.add("hidden");
+            btnSuccess.classList.add("hidden");
+            submitBtn.classList.remove("bg-green-500");
+            submitBtn.classList.add("bg-primary");
+            submitBtn.disabled = false;
+            updateSubmitButton(); // Re-check if form is valid
+        }
+
         // Handle form submission
         if (form) {
-            form.addEventListener("submit", function (e) {
+            form.addEventListener("submit", async function (e) {
                 e.preventDefault();
 
                 // Validate all fields
                 const nameError = document.getElementById("name-error");
                 const emailError = document.getElementById("email-error");
 
-                const isNameValid = validateField(nameInput, nameError, "Le nom est requis");
-                const isEmailValid = validateField(emailInput, emailError, "L'email est requis");
+                const isNameValid = validateField(
+                    nameInput,
+                    nameError,
+                    "Le nom est requis",
+                );
+                const isEmailValid = validateField(
+                    emailInput,
+                    emailError,
+                    "L'email est requis",
+                );
 
                 if (!isNameValid || !isEmailValid) {
                     return;
                 }
+
+                // Show loading animation
+                showLoadingState();
 
                 const formData = new FormData(form);
                 const selectedFeatures = Array.from(
@@ -496,20 +612,28 @@ const features = [
                 // Add additional data
                 formData.append("features", selectedFeatures.join(","));
 
-                // Here you would normally send the data to your backend
-                console.log(
-                    "Form data:",
-                    Object.fromEntries(formData.entries()),
-                );
+                try {
+                    // Simulate form submission delay
+                    if (window.localStorage.getItem("devis") == "1") {
+                        showSuccessState();
+                    } else {
+                        await new Promise((resolve) =>
+                            setTimeout(resolve, 1500),
+                        );
 
-                // Redirect to contact page with success indicator
-                const params = new URLSearchParams({
-                    devis: "true",
-                    nom: formData.get("name") || "",
-                    email: formData.get("email") || "",
-                });
+                        // Here you would normally send the data to your backend
+                        console.log(
+                            "Form data:",
+                            Object.fromEntries(formData.entries()),
+                        );
 
-                window.location.href = "/contact?" + params.toString();
+                        // Show success state
+                        showSuccessState();
+                    }
+                } catch (error) {
+                    console.error("Erreur lors de l'envoi:", error);
+                    resetButtonState();
+                }
             });
         }
 
