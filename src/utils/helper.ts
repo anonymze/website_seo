@@ -14,8 +14,8 @@ export const navItems = [
   },
   {
     href: "/evolution",
-    label: "Évolution du web",
-    title: "Découvrir l'évolution du web",
+    label: "Évolution tarifs",
+    title: "Découvrir l'évolution des tarifs",
   },
   {
     href: "/services",

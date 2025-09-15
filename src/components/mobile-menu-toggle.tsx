@@ -61,7 +61,7 @@ export default function MobileMenuToggle({ navItems }: MobileMenuToggleProps) {
       {isOpen && (
         <div
           id="mobile-menu"
-          className="absolute top-full left-[calc(-75vw)] right-0 md:hidden z-50"
+          className="absolute top-full left-[calc(-75vw)] right-0 lg:hidden z-50"
           role="menu"
           aria-orientation="vertical"
         >

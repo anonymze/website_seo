@@ -129,7 +129,7 @@ const websiteSchema = {
                 </div>
 
                 <!-- Navigation principale desktop -->
-                <div class="hidden md:flex items-center">
+                <div class="hidden lg:flex items-center">
                     <ul class="flex items-center space-x-8 list-none m-0 p-0">
                         {navItems.map((item) => {
                             const isActive = currentPath === item.href;
@@ -143,7 +143,7 @@ const websiteSchema = {
                                         title={item.title}
                                         target={item.target ? "_blank" : undefined}
                                         rel={item.target ? "noopener noreferrer" : undefined}
-                                        class={`${item.target ? 'hover:opacity-80' : 'text-foreground/80 hover:text-primary'} transition-all duration-300 font-medium text-base py-2 px-1  relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
+                                        class={`${item.target ? 'hover:opacity-80' : 'text-foreground/80 hover:text-primary'} transition-all duration-300 font-medium text-sm py-2 px-1  relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-opacity-50 rounded-sm ${isActive ? 'text-primary font-semibold' : ''}`}
                                         style={item.target ? 'color: #ff4676' : undefined}
                                         aria-current={isActive ? 'page' : undefined}
                                     >
@@ -167,10 +167,10 @@ const websiteSchema = {
                         <li>
                             <a
                                 href="/services"
-                                class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-200  hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                                class="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-200  hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                                 title="Obtenir un devis gratuit pour votre projet web - Estimation prix site internet"
                             >
-                                <svg width="20" height="20" class="mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <svg width="18" height="18" class="mr-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
                                 </svg>
                                 <span>Obtenir un devis</span>
@@ -180,7 +180,7 @@ const websiteSchema = {
                 </div>
 
                 <!-- Menu mobile avec amélioration SEO -->
-                <div class="md:hidden relative" role="navigation" aria-label="Menu de navigation mobile">
+                <div class="lg:hidden relative" role="navigation" aria-label="Menu de navigation mobile">
                     <MobileMenuToggle
                         client:visible
                         navItems={navItems.map(item => ({
