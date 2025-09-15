@@ -282,7 +282,7 @@ const features = [
                     <h3 class="text-lg font-semibold text-foreground mb-4">
                         Demander un devis personnalisé
                     </h3>
-                <form class="space-y-4" id="quote-form" novalidate>
+                <form class="space-y-4" id="quote-form">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="space-y-2">
                             <label
@@ -387,7 +387,7 @@ const features = [
         const submitBtn = document.getElementById("submit-btn");
         const nameInput = document.getElementById("name");
         const emailInput = document.getElementById("email");
-        const priceDisplay = document.getElementById("price-display");
+        // const priceDisplay = document.getElementById("price-display");
         const totalPriceElement = document.getElementById("total-price");
 
         // Update price calculation
@@ -503,11 +503,11 @@ const features = [
                 );
 
                 // Redirect to contact page with success indicator
-                const params = new URLSearchParams({
-                    devis: "true",
-                    nom: formData.get("name") || "",
-                    email: formData.get("email") || "",
-                });
+                // const params = new URLSearchParams({
+                //     devis: "true",
+                //     nom: formData.get("name") || "",
+                //     email: formData.get("email") || "",
+                // });
 
                 window.location.href = "/contact?" + params.toString();
             });
