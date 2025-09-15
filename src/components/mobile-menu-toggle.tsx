@@ -90,8 +90,10 @@ export default function MobileMenuToggle({ navItems }: MobileMenuToggleProps) {
             <div className="px-4 py-2">
               <a
                 href="/services"
+                role="menuitem"
                 className="flex items-center justify-center w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg py-4 font-medium transition-background duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 onClick={() => setIsOpen(false)}
+                tabIndex={isOpen ? 0 : -1}
               >
                 <PenIcon className="w-4 h-4 mr-3" />
                 Obtenir un devis

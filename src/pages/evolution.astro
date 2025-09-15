@@ -12,35 +12,31 @@ const pageData = {
 };
 
 
-// Performance comparison data
-const performanceData = [
+// Site performance stats
+const siteStats = [
     {
-        metric: "Temps de chargement",
-        before: "5.2s",
-        after: "0.8s",
-        improvement: "84% plus rapide",
-        icon: "zap",
+        score: 100,
+        label: "Performance",
+        color: "text-green-500",
+        bgColor: "bg-green-500",
     },
     {
-        metric: "Score SEO",
-        before: "68/100",
-        after: "96/100",
-        improvement: "+41% d'amélioration",
-        icon: "trending-up",
+        score: 96,
+        label: "Accessibilité",
+        color: "text-green-500",
+        bgColor: "bg-green-500",
     },
     {
-        metric: "Personnalisation",
-        before: "Limitée",
-        after: "Totale",
-        improvement: "100% flexible",
-        icon: "settings",
+        score: 96,
+        label: "Bonnes pratiques",
+        color: "text-green-500",
+        bgColor: "bg-green-500",
     },
     {
-        metric: "Coût à long terme",
-        before: "200€/mois",
-        after: "0€/mois",
-        improvement: "100% d'économies récurrentes",
-        icon: "dollar-sign",
+        score: 100,
+        label: "Référencement (SEO)",
+        color: "text-green-500",
+        bgColor: "bg-green-500",
     },
 ];
 ---
@@ -174,7 +170,7 @@ const performanceData = [
                             <div class="space-y-4">
                                 <div class="flex items-center gap-3 mb-4">
                                     <div
-                                        class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
+                                        class="w-8 h-8 min-w-8 bg-red-100 rounded-full flex items-center justify-center"
                                     >
                                         <AlertTriangle className="w-4 h-4 text-red-600" />
                                     </div>
@@ -306,42 +302,50 @@ const performanceData = [
 
             <!-- Performance Comparison -->
             <div
-                class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8"
+                class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-12"
                 aria-labelledby="performance-heading"
             >
-                <h2 id="performance-heading" class="font-bold text-2xl text-center text-foreground mb-8">
-                    Performances du site actuel calculées par Google
+                <h2 id="performance-heading" class="font-bold text-2xl text-center text-white mb-12">
+                    Performances de ce site sur ordinateur et téléphone
                 </h2>
                 <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                    role="list"
+                    class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
                 >
                     {
-                        performanceData.map((data) => (
-                            <article class="bg-white rounded-2xl p-6 text-center shadow-lg" role="listitem">
-                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                                    {data.icon === "zap" && <Zap className="w-6 h-6 text-white" />}
-                                    {data.icon === "trending-up" && <TrendingUp className="w-6 h-6 text-white" />}
-                                    {data.icon === "settings" && <Settings className="w-6 h-6 text-white" />}
-                                    {data.icon === "dollar-sign" && <DollarSign className="w-6 h-6 text-white" />}
+                        siteStats.map((stat) => (
+                            <article class="text-center">
+                                <div class="relative inline-flex items-center justify-center w-24 h-24 mb-4">
+                                    <!-- Background circle -->
+                                    <div class="absolute inset-0 rounded-full border-4 border-slate-600"></div>
+                                    <!-- Progress circle -->
+                                    <svg class="w-24 h-24 -rotate-90" viewBox="0 0 36 36">
+                                        <path
+                                            class="stroke-current text-green-500"
+                                            stroke-width="3"
+                                            fill="none"
+                                            stroke-linecap="round"
+                                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            stroke-dasharray={`${stat.score}, 100`}
+                                        />
+                                    </svg>
+                                    <!-- Score text -->
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-2xl font-bold text-green-500">
+                                            {stat.score}
+                                        </span>
+                                    </div>
                                 </div>
-                                <h3 class="font-semibold text-foreground mb-3">
-                                    {data.metric}
+                                <h3 class="text-white font-medium text-sm">
+                                    {stat.label}
                                 </h3>
-                                <div class="space-y-2">
-                                    <div class="text-sm text-red-600 line-through">
-                                        Avant : {data.before}
-                                    </div>
-                                    <div class="text-lg font-bold text-green-600">
-                                        Maintenant : {data.after}
-                                    </div>
-                                    <div class="text-sm font-medium text-primary">
-                                        {data.improvement}
-                                    </div>
-                                </div>
                             </article>
                         ))
                     }
+                </div>
+                <div class="text-center mt-8">
+                    <p class="text-slate-300 text-sm">
+                        Notes attribuées par Google Lighthouse (sur 100 points)
+                    </p>
                 </div>
             </div>
         </div>
