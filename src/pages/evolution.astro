@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/layout.astro";
+import { Zap, TrendingUp, Settings, DollarSign, Lightbulb, AlertTriangle, CheckCircle, ArrowRight } from "lucide-react";
 
 // Page SEO data
 const pageData = {
@@ -94,12 +95,13 @@ const performanceData = [
         }
     </script>
 
-    <!-- Hero Section -->
-    <section
-        class="pt-20"
-        aria-labelledby="evolution-hero-heading"
-        role="banner"
-    >
+    <main>
+        <!-- Hero Section -->
+        <section
+            class="pt-20"
+            aria-labelledby="evolution-hero-heading"
+            role="banner"
+        >
         <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
             <header class="text-center mb-16">
                 <h1
@@ -149,31 +151,20 @@ const performanceData = [
                     <div
                         class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 mb-8 text-left"
                     >
-                        <div class="flex items-start gap-4 mb-6">
+                        <div class="flex items-center gap-4 mb-6">
                             <div
                                 class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center flex-shrink-0"
                             >
-                                <svg
-                                    class="w-8 h-8 text-white"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
+                                <Zap className="w-8 h-8 text-white" />
                             </div>
                             <div>
                                 <h3
-                                    class="font-bold text-xl text-blue-900 mb-2"
+                                    class="font-bold text-xl text-blue-900 mb-1"
                                 >
                                     Ma vision du changement
                                 </h3>
                                 <p class="text-blue-800 text-sm opacity-80">
-                                    Yann Metier, Développeur Web IA
+                                    Yann Metier, développeur digital
                                 </p>
                             </div>
                         </div>
@@ -185,23 +176,10 @@ const performanceData = [
                                     <div
                                         class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
                                     >
-                                        <svg
-                                            class="w-4 h-4 min-w-8 text-red-600"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.728-.833-2.498 0L4.316 15.5c-.77.833.192 2.5 1.732 2.5z"
-                                            ></path>
-                                        </svg>
+                                        <AlertTriangle className="w-4 h-4 text-red-600" />
                                     </div>
                                     <h4 class="font-semibold text-red-800">
-                                        ⏰ Hier : le dilemme de la vitesse et du
-                                        prix du développement
+                                        <span role="img" aria-label="Horloge">⏰</span> Hier : le dilemme de la vitesse a un faible prix de développement
                                     </h4>
                                 </div>
                                 <div
@@ -248,22 +226,10 @@ const performanceData = [
                                     <div
                                         class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
                                     >
-                                        <svg
-                                            class="w-4 h-4 text-green-600"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            ></path>
-                                        </svg>
+                                        <CheckCircle className="w-4 h-4 text-green-600" />
                                     </div>
                                     <h4 class="font-semibold text-green-800">
-                                        🚀 Aujourd'hui : l'IA
+                                        <span role="img" aria-label="Fusée">🚀</span> Aujourd'hui : l'IA
                                     </h4>
                                 </div>
                                 <div
@@ -287,7 +253,7 @@ const performanceData = [
                                         <span class="text-green-500">•</span>
                                         <span
                                             >Façonnage <strong
-                                                >ligne de code par ligne de code</strong
+                                                >ligne de code par ligne</strong
                                             ></span
                                         >
                                     </p>
@@ -315,19 +281,7 @@ const performanceData = [
                             class="mt-8 p-4 bg-blue-100/50 rounded-2xl border border-blue-200"
                         >
                             <div class="flex items-center gap-3 mb-2">
-                                <svg
-                                    class="w-5 h-5 text-blue-600"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                                    ></path>
-                                </svg>
+                                <Lightbulb className="w-5 h-5 text-blue-600" />
                                 <h5 class="font-semibold text-blue-800">
                                     L'avantage concurrentiel
                                 </h5>
@@ -353,87 +307,27 @@ const performanceData = [
             <!-- Performance Comparison -->
             <div
                 class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8"
+                aria-labelledby="performance-heading"
             >
-                <h3 class="font-bold text-2xl text-center text-foreground mb-8">
-                    Performances calculées par Google
-                </h3>
+                <h2 id="performance-heading" class="font-bold text-2xl text-center text-foreground mb-8">
+                    Performances du site actuel calculées par Google
+                </h2>
                 <div
                     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    role="list"
                 >
                     {
                         performanceData.map((data) => (
-                            <article class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                            <article class="bg-white rounded-2xl p-6 text-center shadow-lg" role="listitem">
                                 <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                                    {data.icon === "zap" && (
-                                        <svg
-                                            class="w-6 h-6 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M13 10V3L4 14h7v7l9-11h-7z"
-                                            />
-                                        </svg>
-                                    )}
-                                    {data.icon === "trending-up" && (
-                                        <svg
-                                            class="w-6 h-6 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                                            />
-                                        </svg>
-                                    )}
-                                    {data.icon === "settings" && (
-                                        <svg
-                                            class="w-6 h-6 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                                            />
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                                            />
-                                        </svg>
-                                    )}
-                                    {data.icon === "dollar-sign" && (
-                                        <svg
-                                            class="w-6 h-6 text-white"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                                            />
-                                        </svg>
-                                    )}
+                                    {data.icon === "zap" && <Zap className="w-6 h-6 text-white" />}
+                                    {data.icon === "trending-up" && <TrendingUp className="w-6 h-6 text-white" />}
+                                    {data.icon === "settings" && <Settings className="w-6 h-6 text-white" />}
+                                    {data.icon === "dollar-sign" && <DollarSign className="w-6 h-6 text-white" />}
                                 </div>
-                                <h4 class="font-semibold text-foreground mb-3">
+                                <h3 class="font-semibold text-foreground mb-3">
                                     {data.metric}
-                                </h4>
+                                </h3>
                                 <div class="space-y-2">
                                     <div class="text-sm text-red-600 line-through">
                                         Avant : {data.before}
@@ -453,12 +347,12 @@ const performanceData = [
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="py-16 bg-primary/5 rounded-3xl mb-16">
+        <!-- Call to Action -->
+        <section class="py-16 bg-primary/5 rounded-3xl mb-16" aria-labelledby="cta-heading">
         <div class="max-w-4xl mx-auto text-center px-8 sm:px-12 lg:px-16">
-            <h3 class="font-bold text-3xl text-foreground mb-6">
-                Prêt à faire le saut technologique avec moi ?
-            </h3>
+            <h2 id="cta-heading" class="font-bold text-3xl text-foreground mb-6">
+                Prêt à faire le saut technologique ?
+            </h2>
             <p class="text-muted-foreground text-lg mb-8 leading-relaxed">
                 L'intelligence artificielle permet aujourd'hui de créer des sites web <strong
                     >ultra-performants</strong
@@ -474,20 +368,10 @@ const performanceData = [
                     class="inline-flex items-center px-8 py-4 bg-primary text-white font-medium rounded-2xl hover:bg-primary/90 transition-colors"
                 >
                     Découvrir mes tarifs
-                    <svg
-                        class="ml-2 w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
+                    <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
             </div>
         </div>
-    </section>
+        </section>
+    </main>
 </Layout>
