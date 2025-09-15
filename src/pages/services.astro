@@ -503,11 +503,11 @@ const features = [
                 );
 
                 // Redirect to contact page with success indicator
-                // const params = new URLSearchParams({
-                //     devis: "true",
-                //     nom: formData.get("name") || "",
-                //     email: formData.get("email") || "",
-                // });
+                const params = new URLSearchParams({
+                    devis: "true",
+                    nom: formData.get("name") || "",
+                    email: formData.get("email") || "",
+                });
 
                 window.location.href = "/contact?" + params.toString();
             });
