@@ -3,49 +3,89 @@ import Layout from "@/layouts/layout.astro";
 
 // Page SEO data
 const pageData = {
-    title: "Contact - Yann Metier Création de Sites Web",
+    title: "Évolution du Web - L'IA Révolutionne la Création de Sites Internet",
     description:
-        "Contactez Yann Metier pour la création de votre site web. Développeur web professionnel basé en France.",
+        "Découvrez comment l'intelligence artificielle transforme la création de sites web. Performance, SEO et personnalisation : l'évolution des prix et technologies.",
     keywords:
-        "contact développeur web freelance, Yann Metier développeur, devis création site web, développeur web France, freelance sites internet professionnels",
+        "évolution web, IA création site internet, WordPress vs IA, Wix vs développement moderne, performance web, SEO intelligence artificielle, prix sites web évolution",
 };
 
-// Contact information
-const contactInfo = [
+// Pricing evolution data
+const pricingEvolution = {
+    before: {
+        title: "Avant : L'ère WordPress & Wix",
+        period: "2010-2020",
+        platforms: ["WordPress", "Wix", "Squarespace", "Jimdo"],
+        advantages: [
+            "Rapide à mettre en place",
+            "Coût initial faible",
+            "Pas de code requis",
+        ],
+        disadvantages: [
+            "Performance limitée",
+            "SEO basique",
+            "Personnalisation restreinte",
+            "Dépendance aux plugins",
+        ],
+        metrics: {
+            loadTime: "3-8 secondes",
+            seoScore: "60-75/100",
+            customization: "30%",
+            maintenance: "Élevée",
+            priceRange: "50-500€/mois",
+        },
+    },
+    now: {
+        title: "Maintenant : L'IA au service du Web",
+        period: "2023-2025",
+        technologies: ["Astro", "Next.js", "IA Générative", "Edge Computing"],
+        advantages: [
+            "Performance exceptionnelle",
+            "SEO optimisé",
+            "Personnalisation totale",
+            "Évolutivité",
+        ],
+        metrics: {
+            loadTime: "0.5-1.5 secondes",
+            seoScore: "90-100/100",
+            customization: "100%",
+            maintenance: "Minimale",
+            priceRange: "300-2000€ (one-time)",
+        },
+    },
+};
+
+// Performance comparison data
+const performanceData = [
     {
-        icon: "mail",
-        title: "Email",
-        value: "metier.yann@gmail.com",
-        subtitle: "Réponse sous 24h en moyenne",
+        metric: "Temps de chargement",
+        before: "5.2s",
+        after: "0.8s",
+        improvement: "84% plus rapide",
+        icon: "zap",
     },
     {
-        icon: "phone",
-        title: "Téléphone",
-        value: "+33 7 52 04 07 71",
-        subtitle: "Du lundi au dimanche",
+        metric: "Score SEO",
+        before: "68/100",
+        after: "96/100",
+        improvement: "+41% d'amélioration",
+        icon: "trending-up",
     },
     {
-        icon: "linkedin",
-        title: "LinkedIn",
-        value: "Yann Metier",
-        subtitle: "Profil professionnel",
-        url: "https://www.linkedin.com/in/yann-metier-147706156/",
+        metric: "Personnalisation",
+        before: "Limitée",
+        after: "Totale",
+        improvement: "100% flexible",
+        icon: "settings",
     },
     {
-        icon: "facebook",
-        title: "Facebook",
-        value: "Yann Metier",
-        subtitle: "Page professionnelle",
-        url: "https://facebook.com/yann.metier",
+        metric: "Coût à long terme",
+        before: "200€/mois",
+        after: "0€/mois",
+        improvement: "100% d'économies récurrentes",
+        icon: "dollar-sign",
     },
 ];
-
-// Location information
-const locationInfo = {
-    title: "Ma localisation",
-    address: "France - Toulouse",
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d186973.25674053936!2d1.3628007068633672!3d43.60426024977977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ff%3A0x406f69c2f411030!2sToulouse%2C%20France!5e0!3m2!1sen!2sfr!4v1641234567890",
-};
 ---
 
 <Layout
@@ -54,275 +94,443 @@ const locationInfo = {
     keywords={pageData.keywords}
     type="website"
 >
-    <!-- Schema.org Person données structurées -->
+    <!-- Schema.org Article données structurées -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Person",
-            "@id": "https://prix-site-internet.fr/contact",
-            "name": "Yann Metier",
-            "jobTitle": "Développeur Web Freelance",
-            "description": "Développeur web freelance expert en estimation de prix et création de sites internet. Devis personnalisés et tarification transparente pour vos projets web.",
-            "url": "https://prix-site-internet.fr",
-            "image": "https://prix-site-internet.fr/yann-metier-developer.webp",
-            "email": "metier.yann@gmail.com",
-            "telephone": "+33752040771",
-            "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "FR",
-                "addressLocality": "Toulouse",
-                "addressRegion": "Occitanie"
+            "@type": "Article",
+            "@id": "https://prix-site-internet.fr/evolution",
+            "headline": "L'Évolution du Web : Comment l'IA Révolutionne la Création de Sites Internet",
+            "description": "Découvrez comment l'intelligence artificielle transforme la création de sites web. Performance, SEO et personnalisation : l'évolution des prix et technologies.",
+            "author": {
+                "@type": "Person",
+                "name": "Yann Metier",
+                "jobTitle": "Développeur Web Expert IA"
             },
-            "sameAs": [
-                "https://www.linkedin.com/in/yann-metier-147706156/",
-                "https://facebook.com/yann.metier"
+            "publisher": {
+                "@type": "Organization",
+                "name": "Yann Metier Web Development",
+                "url": "https://prix-site-internet.fr"
+            },
+            "datePublished": "2025-01-15",
+            "dateModified": "2025-01-15",
+            "mainEntityOfPage": "https://prix-site-internet.fr/evolution",
+            "keywords": [
+                "évolution web",
+                "intelligence artificielle",
+                "WordPress vs IA",
+                "performance web",
+                "SEO moderne",
+                "prix sites web"
             ],
-            "knowsAbout": [
-                "Développement Web",
-                "Estimation Prix Sites Internet",
-                "Devis Sites Web",
-                "Tarification Web",
-                "Création Sites Internet",
-                "Consultation Web",
-                "Prix Transparents"
-            ],
-            "offers": {
-                "@type": "Offer",
-                "itemOffered": {
-                    "@type": "Service",
-                    "name": "Création Site Internet",
-                    "description": "Développement de sites web professionnels sur-mesure"
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "Évolution technologique web",
+                    "description": "Transformation de l'industrie web avec l'IA"
                 },
-                "areaServed": {
-                    "@type": "Country",
-                    "name": "France"
+                {
+                    "@type": "Thing",
+                    "name": "Performance web",
+                    "description": "Amélioration des temps de chargement et du SEO"
                 }
-            }
+            ]
         }
     </script>
+
     <!-- Hero Section -->
-    <section class="pt-20" aria-labelledby="contact-hero-heading" role="banner">
+    <section
+        class="pt-20"
+        aria-labelledby="evolution-hero-heading"
+        role="banner"
+    >
         <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
-            <header class="text-center mb-12">
+            <header class="text-center mb-16">
                 <h1
-                    id="contact-hero-heading"
-                    class="font-bold text-4xl md:text-5xl text-foreground mb-6 leading-tight"
+                    id="evolution-hero-heading"
+                    class="font-bold text-4xl md:text-6xl text-foreground mb-6 leading-tight"
                 >
-                    Contactez-moi
+                    L'évolution du <span class="text-primary">Web</span>
                 </h1>
                 <p
-                    class="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed"
+                    class="text-muted-foreground text-xl max-w-4xl mx-auto leading-relaxed"
                 >
-                    Je serais ravi de <strong>répondre à vos questions</strong> et
-                    de discuter de votre de site internet. <br />Même si nous ne
-                    collaborons pas directement, je reste disponible pour vous <strong
-                        >accompagner et vous orienter</strong
-                    > dans vos questionnements.
+                    L'<strong>intelligence artificielle</strong> révolutionne la
+                    création de sites internet. Fini les limitations des générateurs
+                    de contenus comme WordPress ou Wix... place à la <strong
+                        >performance</strong
+                    >, la <strong>personnalisation totale</strong> et un <strong
+                        >référencement exceptionnel</strong
+                    >.
                 </p>
             </header>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="py-4" aria-labelledby="contact-info-heading">
+    <!-- Section 1: Pricing Evolution -->
+    <section class="py-16" aria-labelledby="pricing-evolution-heading">
         <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
-            <header class="text-center mb-8">
+            <header class="text-center mb-16">
                 <h2
-                    id="contact-info-heading"
-                    class="font-bold text-2xl text-foreground mb-2"
+                    id="pricing-evolution-heading"
+                    class="font-bold text-3xl md:text-4xl text-foreground mb-6"
                 >
-                    Mes coordonnées
+                    Les règles du jeu ont <span class="text-primary"
+                        >changé</span
+                    >
                 </h2>
-                <p class="text-muted-foreground text-md">
-                    Plusieurs moyens de me contacter pour votre projet :
-                </p>
-            </header>
+                <div class="max-w-4xl mx-auto">
+                    <p
+                        class="text-muted-foreground text-lg mb-8 leading-relaxed"
+                    >
+                        Avant, créer un site en quelques jours signifiait
+                        compromis sur la qualité. Aujourd'hui, mes outils ont
+                        évolué et changent la donne : vitesse, performance et
+                        sur-mesure à prix compétitif.
+                    </p>
 
-            <!-- Contact Info -->
+                    <!-- Personal Story Section -->
+                    <div
+                        class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 mb-8 text-left"
+                    >
+                        <div class="flex items-start gap-4 mb-6">
+                            <div
+                                class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center flex-shrink-0"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-bold text-xl text-blue-900 mb-2"
+                                >
+                                    Ma Vision du Changement
+                                </h3>
+                                <p class="text-blue-800 text-sm opacity-80">
+                                    Yann Metier, Développeur Web IA
+                                </p>
+                            </div>
+                        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8" role="list">
-                {
-                    contactInfo.map((info, index) => (
-                        <article
-                            class="border border-border/20 rounded-3xl bg-card/60 backdrop-blur-lg"
-                            role="listitem"
-                        >
-                            <div class="p-6">
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0 organic-shape">
-                                        {info.icon === "phone" && (
-                                            <svg
-                                                class="w-6 h-6 text-white"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Before -->
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div
+                                        class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center"
+                                    >
+                                        <svg
+                                            class="w-4 h-4 min-w-8 text-red-600"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
                                                 stroke-linecap="round"
                                                 stroke-linejoin="round"
-                                                aria-hidden="true"
-                                            >
-                                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                                            </svg>
-                                        )}
-                                        {info.icon === "mail" && (
-                                            <svg
-                                                class="w-6 h-6 text-white"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
                                                 stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                aria-hidden="true"
-                                            >
-                                                <rect
-                                                    width="20"
-                                                    height="16"
-                                                    x="2"
-                                                    y="4"
-                                                    rx="2"
-                                                />
-                                                <path d="m22 7-10 5L2 7" />
-                                            </svg>
-                                        )}
-                                        {info.icon === "linkedin" && (
-                                            <svg
-                                                class="w-6 h-6 text-white"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                aria-hidden="true"
-                                            >
-                                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                                <rect
-                                                    width="4"
-                                                    height="12"
-                                                    x="2"
-                                                    y="9"
-                                                />
-                                                <circle cx="4" cy="4" r="2" />
-                                            </svg>
-                                        )}
-                                        {info.icon === "facebook" && (
-                                            <svg
-                                                class="w-6 h-6 text-white"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                aria-hidden="true"
-                                            >
-                                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                                            </svg>
-                                        )}
+                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.728-.833-2.498 0L4.316 15.5c-.77.833.192 2.5 1.732 2.5z"
+                                            ></path>
+                                        </svg>
                                     </div>
-                                    <div>
-                                        <h3 class="font-medium text-foreground mb-1 flex items-center">
-                                            {info.title}
-                                        </h3>
-                                        {info.url ? (
-                                            <a
-                                                href={info.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                class="text-primary hover:text-primary/80 transition-colors underline"
-                                            >
-                                                {info.value}
-                                            </a>
-                                        ) : (
-                                            <p class="text-muted-foreground">
-                                                {info.value}
-                                            </p>
-                                        )}
-                                        <p class="text-sm text-muted-foreground mt-1">
-                                            {info.subtitle}
-                                        </p>
-                                    </div>
+                                    <h4 class="font-semibold text-red-800">
+                                        ⏰ Hier : le dilemme de la vitesse et du
+                                        prix du développement
+                                    </h4>
+                                </div>
+                                <div
+                                    class="pl-11 space-y-3 text-sm text-blue-700"
+                                >
+                                    <p class="flex items-center gap-2">
+                                        <span class="text-red-500">•</span>
+                                        <span
+                                            >Créer rapidement = utiliser des <strong
+                                                >CMS lourds</strong
+                                            ></span
+                                        >
+                                    </p>
+                                    <p class="flex items-center gap-2">
+                                        <span class="text-red-500">•</span>
+                                        <span
+                                            >Solutions <strong
+                                                >trop complexes</strong
+                                            > pour des sites simples</span
+                                        >
+                                    </p>
+                                    <p class="flex items-center gap-2">
+                                        <span class="text-red-500">•</span>
+                                        <span
+                                            >Compromis obligatoire : <strong
+                                                >vitesse vs qualité</strong
+                                            ></span
+                                        >
+                                    </p>
+                                    <p class="flex items-center gap-2">
+                                        <span class="text-red-500">•</span>
+                                        <span
+                                            >Pression de la <strong
+                                                >compétitivité</strong
+                                            ></span
+                                        >
+                                    </p>
                                 </div>
                             </div>
-                        </article>
-                    ))
-                }
+
+                            <!-- After -->
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div
+                                        class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
+                                    >
+                                        <svg
+                                            class="w-4 h-4 text-green-600"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-semibold text-green-800">
+                                        🚀 Aujourd'hui : l'IA
+                                    </h4>
+                                </div>
+                                <div
+                                    class="pl-11 space-y-3 text-sm text-blue-700"
+                                >
+                                    <p class="flex items-start gap-2">
+                                        <span class="text-green-500">•</span>
+                                        <span
+                                            ><strong>Aussi rapide</strong>,
+                                            voire plus qu'avant</span
+                                        >
+                                    </p>
+                                    <p class="flex items-start gap-2">
+                                        <span class="text-green-500">•</span>
+                                        <span
+                                            ><strong>Tarifs compétitifs</strong>
+                                            alignés sur votre budget</span
+                                        >
+                                    </p>
+                                    <p class="flex items-start gap-2">
+                                        <span class="text-green-500">•</span>
+                                        <span
+                                            >Façonnage <strong
+                                                >ligne de code par ligne de code</strong
+                                            ></span
+                                        >
+                                    </p>
+                                    <p class="flex items-start gap-2">
+                                        <span class="text-green-500">•</span>
+                                        <span
+                                            ><strong>Zéro dépendance</strong> aux
+                                            outils de génération</span
+                                        >
+                                    </p>
+                                    <p class="flex items-start gap-2">
+                                        <span class="text-green-500">•</span>
+                                        <span
+                                            ><strong
+                                                >Référencement excellent</strong
+                                            > par conception</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Insight -->
+                        <div
+                            class="mt-8 p-4 bg-blue-100/50 rounded-2xl border border-blue-200"
+                        >
+                            <div class="flex items-center gap-3 mb-2">
+                                <svg
+                                    class="w-5 h-5 text-blue-600"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                                    ></path>
+                                </svg>
+                                <h5 class="font-semibold text-blue-800">
+                                    L'avantage concurrentiel
+                                </h5>
+                            </div>
+                            <p
+                                class="text-blue-700 text-sm leading-relaxed pl-8"
+                            >
+                                L'IA n'est plus un gadget, c'est devenu mon <strong
+                                    >multiplicateur de force</strong
+                                >. Elle me permet d'offrir du <strong
+                                    >sur-mesure haut de gamme</strong
+                                > avec la
+                                <strong>rapidité d'exécution</strong> des solutions
+                                standardisées, sans leurs <strong
+                                    >limitations</strong
+                                >.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Performance Comparison -->
+            <div
+                class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8"
+            >
+                <h3 class="font-bold text-2xl text-center text-foreground mb-8">
+                    Performances calculées par Google
+                </h3>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
+                    {
+                        performanceData.map((data) => (
+                            <article class="bg-white rounded-2xl p-6 text-center shadow-lg">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                                    {data.icon === "zap" && (
+                                        <svg
+                                            class="w-6 h-6 text-white"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M13 10V3L4 14h7v7l9-11h-7z"
+                                            />
+                                        </svg>
+                                    )}
+                                    {data.icon === "trending-up" && (
+                                        <svg
+                                            class="w-6 h-6 text-white"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                                            />
+                                        </svg>
+                                    )}
+                                    {data.icon === "settings" && (
+                                        <svg
+                                            class="w-6 h-6 text-white"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                            />
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                            />
+                                        </svg>
+                                    )}
+                                    {data.icon === "dollar-sign" && (
+                                        <svg
+                                            class="w-6 h-6 text-white"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                                            />
+                                        </svg>
+                                    )}
+                                </div>
+                                <h4 class="font-semibold text-foreground mb-3">
+                                    {data.metric}
+                                </h4>
+                                <div class="space-y-2">
+                                    <div class="text-sm text-red-600 line-through">
+                                        Avant : {data.before}
+                                    </div>
+                                    <div class="text-lg font-bold text-green-600">
+                                        Maintenant : {data.after}
+                                    </div>
+                                    <div class="text-sm font-medium text-primary">
+                                        {data.improvement}
+                                    </div>
+                                </div>
+                            </article>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section
-        class="py-10 mt-8 bg-card/60 rounded-2xl mb-16"
-        aria-labelledby="location-heading"
-    >
-        <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
-            <header class="text-center mb-8">
-                <h2
-                    id="location-heading"
-                    class="font-bold text-3xl text-foreground mb-2"
+    <!-- Call to Action -->
+    <section class="py-16 bg-primary/5 rounded-3xl mb-16">
+        <div class="max-w-4xl mx-auto text-center px-8 sm:px-12 lg:px-16">
+            <h3 class="font-bold text-3xl text-foreground mb-6">
+                Prêt à faire le saut technologique avec moi ?
+            </h3>
+            <p class="text-muted-foreground text-lg mb-8 leading-relaxed">
+                L'intelligence artificielle permet aujourd'hui de créer des sites web <strong
+                    >ultra-performants</strong
+                >,
+                <strong>parfaitement optimisés</strong> et <strong
+                    >économiquement avantageux</strong
                 >
-                    {locationInfo.title}
-                </h2>
-                <p class="text-muted-foreground text-lg">
-                    Développeur web basé en France
-                </p>
-            </header>
-
-            <div class="max-w-4xl mx-auto">
-                <article
-                    class="border border-border/20 rounded-3xl bg-card backdrop-blur-lg overflow-hidden"
+                à long terme.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                    href="/contact"
+                    class="inline-flex items-center px-8 py-4 bg-primary text-white font-medium rounded-2xl hover:bg-primary/90 transition-colors"
                 >
-                    <div class="p-8 pb-2">
-                        <h3
-                            class="font-bold text-xl text-foreground mb-4 flex items-center"
-                        >
-                            <svg
-                                class="w-6 h-6 mr-3 text-primary flex-shrink-0"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                                ></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            {locationInfo.address}
-                            <span
-                                class="ml-2 text-2xl"
-                                aria-label="Drapeau France">🇫🇷</span
-                            >
-                        </h3>
-                    </div>
-
-                    <div class="px-8 pb-8">
-                        <div
-                            class="aspect-[16/10] rounded-2xl overflow-hidden border border-border/20 bg-gradient-to-br from-primary/5 to-secondary/5"
-                        >
-                            <iframe
-                                src={locationInfo.mapUrl}
-                                width="100%"
-                                height="100%"
-                                style="border:0;"
-                                allowfullscreen=""
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
-                                title="Carte Google Maps - France"
-                                aria-label="Localisation en France"></iframe>
-                        </div>
-                    </div>
-                </article>
+                    Découvrir mes tarifs
+                    <svg
+                        class="ml-2 w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
