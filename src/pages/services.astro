@@ -606,13 +606,19 @@ const features = [
                 // Show loading animation
                 showLoadingState();
 
-                const formData = new FormData(form);
+                // Prepare JSON data
                 const selectedFeatures = Array.from(
                     document.querySelectorAll('input[name="features"]:checked'),
                 ).map((input) => input.value);
 
-                // Add additional data
-                formData.append("features", selectedFeatures.join(","));
+                const jsonData = {
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    company: document.getElementById("company").value.trim(),
+                    features: selectedFeatures,
+                    totalPrice: document.getElementById("total-price").textContent,
+                    timestamp: new Date().toISOString()
+                };
 
                 try {
                     // Simulate form submission delay
@@ -628,14 +634,11 @@ const features = [
 
                         await fetch("https://api-routes-one-nu.vercel.app/api/mail", {
                             method: "POST",
-                            body: formData,
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(jsonData),
                         });
-
-                        // Here you would normally send the data to your backend
-                        // console.log(
-                        //     "Form data:",
-                        //     Object.fromEntries(formData.entries()),
-                        // );
 
                         // Show success state
                         showSuccessState();
