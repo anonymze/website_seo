@@ -626,16 +626,16 @@ const features = [
                             setTimeout(resolve, 500),
                         );
 
-                        await fetch("https://example.com/api/submit", {
+                        await fetch("https://api-routes-one-nu.vercel.app/api/mail", {
                             method: "POST",
                             body: formData,
                         });
 
                         // Here you would normally send the data to your backend
-                        console.log(
-                            "Form data:",
-                            Object.fromEntries(formData.entries()),
-                        );
+                        // console.log(
+                        //     "Form data:",
+                        //     Object.fromEntries(formData.entries()),
+                        // );
 
                         // Show success state
                         showSuccessState();
