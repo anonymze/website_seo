@@ -631,12 +631,12 @@ const features = [
                     // Simulate form submission delay
                     if (window.localStorage.getItem("devis") == "1") {
                         await new Promise((resolve) =>
-                            setTimeout(resolve, 1000),
+                            setTimeout(resolve, 800),
                         );
                         showSuccessState();
                     } else {
                         await new Promise((resolve) =>
-                            setTimeout(resolve, 500),
+                            setTimeout(resolve, 400),
                         );
 
                         await fetch("https://api-routes-one-nu.vercel.app/api/mail", {
