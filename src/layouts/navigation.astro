@@ -4,7 +4,7 @@ import MobileMenuToggle from "@/components/mobile-menu-toggle.tsx";
 import { Image } from "astro:assets";
 import { navItems } from "@/utils/helper";
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 // JSON-LD structured data for organization and website
 const organizationSchema = {
@@ -131,12 +131,9 @@ const websiteSchema = {
                 <div class="hidden lg:flex items-center">
                     <ul class="flex items-center space-x-8 list-none m-0 p-0">
                         {navItems.map((item) => {
-                            const isActive = currentPath === item.href;
+                            const normalizedHref = item.href.replace(/\/$/, '') || '/';
+                            const isActive = currentPath === normalizedHref;
                             const itemId = `nav-${item.href.slice(1) || 'Accueil'}`;
-
-                            console.log(isActive);
-                            console.log(currentPath);
-                            console.log(item.href);
 
                             return (
                                 <li>

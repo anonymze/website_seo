@@ -8,7 +8,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://prix-site-internet.fr",
+  site: "https://www.prix-site-internet.fr",
   // experimental: {
   //   fonts: [
   //     {
