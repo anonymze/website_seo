@@ -7,8 +7,9 @@ import { navItems } from "@/utils/helper";
 // Business information with structured data
 const businessInfo = {
     name: "Yann Metier",
-    profession: "Développeur web",
+    profession: "Développeur Web Freelance",
     phone: "+33 7 52 04 07 71",
+    phoneE164: "+33752040771",
     email: "metier.yann@gmail.com",
     address: {
         street: "Capitole",
@@ -25,22 +26,25 @@ const businessInfo = {
     },
 };
 
+const currentYear = new Date().getFullYear().toString();
+
 // JSON-LD structured data for enhanced SEO
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://www.prix-site-internet.fr/#yann-metier",
     name: businessInfo.name,
     jobTitle: businessInfo.profession,
     description: businessInfo.description,
     url: businessInfo.website,
     email: businessInfo.email,
-    telephone: businessInfo.phone,
+    telephone: businessInfo.phoneE164,
     address: {
         "@type": "PostalAddress",
         streetAddress: businessInfo.address.street,
         addressLocality: businessInfo.address.city,
         postalCode: businessInfo.address.postalCode,
-        addressCountry: businessInfo.address.country,
+        addressCountry: "FR",
     },
     sameAs: [
         businessInfo.socialMedia.linkedin,
@@ -292,7 +296,7 @@ const jsonLd = {
                 itemscope
                 itemtype="https://schema.org/Person"
             >
-                © <time datetime="2025" itemprop="copyrightYear">2025</time>
+                © <time datetime={currentYear} itemprop="copyrightYear">{currentYear}</time>
                 <span itemprop="name">{businessInfo.name}</span> -
                 <span itemprop="description">{businessInfo.profession}</span>.
                 Tous droits réservés.
@@ -303,12 +307,3 @@ const jsonLd = {
     </div>
 </footer>
 
-<script>
-    const year = document.querySelector("[datetime]");
-
-    if (year) {
-        const currentYear = new Date().getFullYear().toString();
-        year?.setAttribute("datetime", currentYear);
-        year.textContent = currentYear;
-    }
-</script>

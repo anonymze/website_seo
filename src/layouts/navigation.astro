@@ -10,12 +10,13 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://www.prix-site-internet.fr/#organization",
     "name": "Yann Metier - Développeur Web Freelance",
     "description": "Expert en création de sites internet avec tarification transparente. Devis gratuit et personnalisé pour votre projet web professionnel.",
     "url": "https://www.prix-site-internet.fr",
     "logo": "https://www.prix-site-internet.fr/logo.webp",
     "image": "https://www.prix-site-internet.fr/yann-metier-developer.webp",
-    "telephone": "+33 7 52 04 07 71",
+    "telephone": "+33752040771",
     "email": "metier.yann@gmail.com",
     "address": {
         "@type": "PostalAddress",
@@ -26,6 +27,7 @@ const organizationSchema = {
     },
     "founder": {
         "@type": "Person",
+        "@id": "https://www.prix-site-internet.fr/#yann-metier",
         "name": "Yann Metier",
         "jobTitle": "Développeur Web Freelance",
         "description": "Développeur web expert freelance. Création de sites internet professionnels, applications web sur-mesure et solutions digitales optimisées.",
@@ -130,7 +132,10 @@ const websiteSchema = {
                         {navItems.map((item) => {
                             const normalizedHref = item.href.replace(/\/$/, '') || '/';
                             const isActive = currentPath === normalizedHref;
-                            const itemId = `nav-${item.href.slice(1) || 'Accueil'}`;
+                            const slug = item.target
+                                ? item.label.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+                                : (item.href.replace(/^\//, '') || 'accueil');
+                            const itemId = `nav-${slug}`;
 
                             return (
                                 <li>
