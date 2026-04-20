@@ -12,15 +12,17 @@ const organizationSchema = {
     "@type": "ProfessionalService",
     "name": "Yann Metier - Développeur Web Freelance",
     "description": "Expert en création de sites internet avec tarification transparente. Devis gratuit et personnalisé pour votre projet web professionnel.",
-    "url": "https://prix-site-internet.fr",
-    "logo": "https://prix-site-internet.fr/logo.webp",
-    "image": "https://prix-site-internet.fr/yann-metier-developer.webp",
+    "url": "https://www.prix-site-internet.fr",
+    "logo": "https://www.prix-site-internet.fr/logo.webp",
+    "image": "https://www.prix-site-internet.fr/yann-metier-developer.webp",
     "telephone": "+33 7 52 04 07 71",
     "email": "metier.yann@gmail.com",
     "address": {
         "@type": "PostalAddress",
         "addressCountry": "FR",
-        "addressRegion": "France"
+        "addressRegion": "Occitanie",
+        "addressLocality": "Toulouse",
+        "postalCode": "31000"
     },
     "founder": {
         "@type": "Person",
@@ -29,7 +31,7 @@ const organizationSchema = {
         "description": "Développeur web expert freelance. Création de sites internet professionnels, applications web sur-mesure et solutions digitales optimisées.",
         "sameAs": [
             "https://www.linkedin.com/in/yann-metier-147706156/",
-            "facebook"
+            "https://www.facebook.com/profile.php?id=61580670908817"
         ]
     },
     "serviceType": "Développement Web",
@@ -65,16 +67,12 @@ const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Yann Metier - Développeur Web Freelance",
-    "url": "https://prix-site-internet.fr",
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://prix-site-internet.fr/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-    },
+    "url": "https://www.prix-site-internet.fr",
+    "inLanguage": "fr-FR",
     "publisher": {
         "@type": "Organization",
         "name": "Prix Site Internet",
-        "logo": "https://prix-site-internet.fr/logo.webp"
+        "logo": "https://www.prix-site-internet.fr/logo.webp"
     }
 };
 

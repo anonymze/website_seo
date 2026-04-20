@@ -11,35 +11,68 @@ export interface Props {
 }
 
 const { title, description, keywords, type = "website" } = Astro.props;
+
+const rawPath = Astro.url.pathname;
+const canonicalPath =
+    rawPath === "/" ? "/" : rawPath.endsWith("/") ? rawPath : `${rawPath}/`;
+const canonicalUrl = `https://www.prix-site-internet.fr${canonicalPath}`;
+
+const pageLabels: Record<string, string> = {
+    "/services/": "Services",
+    "/evolution/": "Évolution tarifs",
+    "/contact/": "Contact",
+};
+
+const breadcrumbSchema =
+    canonicalPath !== "/" && pageLabels[canonicalPath]
+        ? {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                  {
+                      "@type": "ListItem",
+                      position: 1,
+                      name: "Accueil",
+                      item: "https://www.prix-site-internet.fr/",
+                  },
+                  {
+                      "@type": "ListItem",
+                      position: 2,
+                      name: pageLabels[canonicalPath],
+                      item: canonicalUrl,
+                  },
+              ],
+          }
+        : null;
 ---
 
-<html lang="fr">
+<html lang="fr-FR">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} />
 
         <title>{title}</title>
-        <meta name="title" content={title} />
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <meta name="author" content="Expert Création Sites Web" />
+        <meta name="author" content="Yann Metier" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href={`https://prix-site-internet.fr${Astro.url.pathname}`} />
+        <link rel="canonical" href={canonicalUrl} />
 
         <!-- Geographic targeting -->
         <meta name="geo.region" content="FR" />
-        <meta name="geo.placename" content="France" />
+        <meta name="geo.placename" content="Toulouse, France" />
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content={type} />
-        <meta property="og:url" content={`https://prix-site-internet.fr${Astro.url.pathname}`} />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta
             property="og:image"
-            content="https://prix-site-internet.fr/og.png"
+            content="https://www.prix-site-internet.fr/og.webp"
         />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
@@ -53,9 +86,13 @@ const { title, description, keywords, type = "website" } = Astro.props;
         />
 
         <!-- Favicons -->
-        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-        <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+        {breadcrumbSchema && (
+            <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+        )}
     </head>
     <body>
         <Navigation />

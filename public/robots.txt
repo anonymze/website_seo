@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.prix-site-internet.fr/sitemap-index.xml
